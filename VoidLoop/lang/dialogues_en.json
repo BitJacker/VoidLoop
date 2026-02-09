@@ -1,0 +1,18 @@
+{
+    "prologue": [
+        "SYSTEM: Initializing VoidLoop protocol...",
+        "SYSTEM: Connection established.",
+        "UNKNOWN: Finally... someone is awake.",
+        "UNKNOWN: You are in the core of the Void.",
+        "UNKNOWN: Collect the Gold Fragments to restore the system.",
+        "SYSTEM: Warning! Security drones active."
+    ],
+    "level_1_complete": [
+        "UNKNOWN: Good job. You are restoring my memory.",
+        "SYSTEM: Warning: Anomaly detected in Sector 2."
+    ],
+    "game_over": [
+        "SYSTEM: Connection lost.",
+        "VOID: You are part of the loop now."
+    ]
+}

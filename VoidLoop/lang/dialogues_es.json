@@ -1,0 +1,17 @@
+{
+    "prologue": [
+        "SISTEMA: Inicializando protocolo VoidLoop...",
+        "VACÍO: Finalmente alguien ha despertado.",
+        "VACÍO: Recoge los fragmentos de oro. Es el único camino.",
+        "SISTEMA: ¡Advertencia, drones de seguridad activados!"
+    ],
+    "level_1_complete": [
+        "VACÍO: Buen trabajo. Los sistemas se están reiniciando.",
+        "SISTEMA: Analizando... Anomalía detectada en el sector."
+    ],
+    "game_over": [
+        "SISTEMA: Conexión perdida.",
+        "VACÍO: El bucle te ha reclamado. Inténtalo de nuevo.",
+        "[ Presiona ESPACIO para reiniciar ]"
+    ]
+}

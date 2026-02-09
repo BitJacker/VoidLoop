@@ -1,0 +1,18 @@
+{
+    "prologue": [
+        "SYSTÈME : Initialisation du protocole VoidLoop...",
+        "SYSTÈME : Connexion établie.",
+        "INCONNU : Enfin... quelqu'un est réveillé.",
+        "INCONNU : Vous êtes au cœur du Vide.",
+        "INCONNU : Collectez les fragments d'or pour restaurer le système.",
+        "SYSTÈME : Attention ! Drones de sécurité actifs."
+    ],
+    "level_1_complete": [
+        "INCONNU : Bon travail. Vous restaurez ma mémoire.",
+        "SYSTÈME : Attention : Anomalie détectée dans le secteur 2."
+    ],
+    "game_over": [
+        "SYSTÈME : Connexion perdue.",
+        "VIDE : Vous faites maintenant partie della boucle."
+    ]
+}

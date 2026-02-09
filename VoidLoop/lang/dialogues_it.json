@@ -1,0 +1,18 @@
+{
+    "prologue": [
+        "SISTEMA: Inizializzazione protocollo VoidLoop...",
+        "SISTEMA: Connessione stabilita.",
+        "SCONOSCIUTO: Finalmente... qualcuno si è svegliato.",
+        "SCONOSCIUTO: Ti trovi nel cuore del Vuoto.",
+        "SCONOSCIUTO: Raccogli i Frammenti d'Oro per ripristinare il sistema.",
+        "SISTEMA: Attenzione! Droni di sicurezza attivi."
+    ],
+    "level_1_complete": [
+        "SCONOSCIUTO: Ottimo lavoro. Stai ripristinando la mia memoria.",
+        "SISTEMA: Attenzione: Anomalia rilevata nel Settore 2."
+    ],
+    "game_over": [
+        "SISTEMA: Connessione interrotta.",
+        "VUOTO: Ora fai parte del loop."
+    ]
+}
