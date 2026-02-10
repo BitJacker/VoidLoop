@@ -1,140 +1,226 @@
+# 🌀 VoidLoop: Enhanced Edition
+
 <div align="center">
 
-# 🌀 VoidLoop: Cyber-Survival
+![Version](https://img.shields.io/badge/Version-3.0%20Enhanced-00ff96?style=for-the-badge)
+![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Pygame](https://img.shields.io/badge/Pygame-2.5+-green?style=for-the-badge)
+![Platform](https://img.shields.io/badge/Platform-Windows%20|%20Linux%20|%20macOS-lightgrey?style=for-the-badge)
+![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-red?style=for-the-badge)
 
-<img src="https://img.shields.io/badge/Version-2.0%20BitJacker-00ff96?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMiAyMkgyMkwxMiAyWiIgc3Ryb2tlPSIjMDBmZjk2IiBzdHJva2Utd2lkdGg9IjIiLz4KPC9zdmc+" alt="Version">
-<img src="https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
-<img src="https://img.shields.io/badge/Pygame-2.5+-green?style=for-the-badge&logo=python&logoColor=white" alt="Pygame">
-<img src="https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey?style=for-the-badge" alt="Platform">
-<img src="https://img.shields.io/badge/License-All%20Rights%20Reserved-red?style=for-the-badge" alt="License">
+### *An intense top-down shooter in an endless digital void*
 
-### *A frenetic top-down shooter in an endless digital void*
+**Survive • Evolve • Conquer**
 
-**[📺 Watch Gameplay](https://youtu.be/vAMfQcXAbkE) • [🎮 Quick Start](#-quick-start) • [🕹️ Controls](#️-controls) • [📖 How to Play](#-how-to-play)**
+[🎮 Quick Start](#-quick-start) • [🕹️ Game Modes](#️-game-modes) • [⌨️ Controls](#️-controls) • [📖 How to Play](#-how-to-play)
 
 ---
-
-### 🎬 See VoidLoop in Action
-
-[![VoidLoop Gameplay](https://img.youtube.com/vi/vAMfQcXAbkE/maxresdefault.jpg)](https://youtu.be/vAMfQcXAbkE)
-
-*Click to watch the full gameplay demo on YouTube*
 
 </div>
 
----
+## 📖 About
 
-## 🌟 What is VoidLoop?
+**VoidLoop** is a fast-paced **top-down arcade shooter** where you're trapped in a hostile digital simulation. Each game mode offers a unique challenge:
 
-**VoidLoop** is an intense **top-down arcade shooter** where you're trapped in a hostile digital simulation. Your mission: collect fragments, survive endless enemy waves, and break free from the infinite loop.
-
-### ✨ Key Highlights
-
-- 🎯 **Progressive Difficulty**: Each level introduces new challenges - from simple chase enemies to bullet hell scenarios
-- ⚡ **Advanced Movement**: Master **Dash** and **Sprint** mechanics to survive impossible situations
-- 🛡️ **Strategic Obstacles**: Use walls as cover against enemy projectiles (Level 3+)
-- 🔫 **Arsenal System**: Earn coins to unlock powerful weapons in the inter-level shop
-- 💾 **Smart Save System**: Your progress is automatically saved - continue anytime
-- 🌍 **4 Languages**: Full localization in Italian, English, Spanish, and French
-- 👥 **Local Co-op**: Team up with a friend in 2-player mode
-- 💀 **4 Difficulty Modes**: From Easy to Nightmare - each with unique enemy behavior
+- **STORY**: Campaign with fragments and epic boss fights
+- **ENDLESS**: Infinite survival with escalating difficulty  
+- **TIME ATTACK**: Fast-paced combat with evolving weapons
+- **BOSS RUSH**: Face increasingly powerful bosses with unique abilities
+- **HORDE**: Survive waves using only melee combat
 
 ---
 
-## 🎮 Core Features
+## ✨ Key Features
 
-### 🎯 Gameplay Mechanics
+### 🎯 Five Unique Game Modes
 
-| Feature | Description |
-|---------|-------------|
-| **🏃 Movement System** | Smooth 8-directional movement with physics-based collision |
-| **⚡ Dash** | Rapid 60-pixel teleport on 45-frame cooldown (Shift) |
-| **🔥 Sprint** | 1.8x speed boost while holding Ctrl |
-| **🎯 Mouse Aiming** | Pixel-perfect targeting after weapon unlock |
-| **🧱 Solid Walls** | Dynamic obstacles that block movement and projectiles |
-| **⏱️ Level Timer** | Track your speedrun times for each level |
+Each mode has distinct mechanics, objectives, and strategies:
 
-### 🎲 Progression System
+| Mode | Weapon | Walls | Fragments | Objective |
+|------|--------|-------|-----------|-----------|
+| 🎬 **STORY** | Buy | ✓ | ✓ | Collect fragments, fight bosses every 5 levels |
+| ♾️ **ENDLESS** | Start | ✗ | ✗ | Survive infinite waves, level up continuously |
+| ⏱️ **TIME ATTACK** | Start | ✗ | ✗ | Kill enemies to upgrade weapon, maximize kills |
+| 🦸 **BOSS RUSH** | Start | ✗ | ✗ | Defeat 5 progressive boss levels |
+| 🌊 **HORDE** | Melee | ✗ | ✗ | Survive 10 waves per level with melee weapon |
+
+### 👾 Enemy Types
+
+- 🔴 **Normal**: Standard chase and shoot (1 HP)
+- 🟤 **Tank**: Slow, triple-shot spread attack (3+ HP)
+- 🟠 **Sniper**: Long-range fast bullets, keeps distance (1 HP)
+- 🟣 **Kamikaze**: Lightning-fast suicide attacker (1 HP)
+
+### 🦸 Boss Evolution (Boss Rush)
+
+Bosses gain new abilities each level:
+
+1. **Level 1**: Basic shooting attacks
+2. **Level 2**: Dash attacks toward player
+3. **Level 3**: Teleportation with warning flashes
+4. **Level 4**: Spike traps that grow from the ground
+5. **Level 5**: All abilities combined - ultimate challenge
+
+### ⚡ Core Mechanics
+
+- **Dash System**: Quick teleport on cooldown (45 frames)
+- **Sprint**: 1.8x speed boost while held
+- **Power-ups** (Story/Endless only):
+  - 🛡️ **Shield**: 5s invincibility
+  - ⚡ **Speed**: 4s +50% movement
+  - 💥 **Double Damage**: 3s 2x damage
+  - 🔫 **Rapid Fire**: 3.3s triple fire rate
+
+- **Combo System**: Chain kills for bonus coins (2-second window)
+- **Weapon Evolution** (Time Attack): +1 damage every 10 kills
+- **Melee Combat** (Horde): Swing mace with mouse click
+
+### 🎨 Visual Effects
+
+- Dynamic particle systems
+- Glow effects and visual polish
+- Smooth animations
+- Real-time HUD with live stats
+
+---
+
+## 🎮 Game Modes (Detailed)
+
+### 🎬 STORY Mode
+
+**Classic campaign experience**
+
+- Collect **4 + level** gold fragments to progress
+- **Boss fights every 5 levels** with multi-phase combat
+- **Wall obstacles** from level 3+ (use as cover)
+- **Buy weapons** at shop between levels
+- **Power-ups** spawn randomly
+- Save progress between sessions
+
+**Strategy**: Use walls for cover, save coins for weapon early, maintain combos for bonus income.
+
+---
+
+### ♾️ ENDLESS Mode
+
+**Infinite survival challenge**
+
+- No fragments to collect
+- **Start with weapon unlocked**
+- **No walls** - pure combat skill
+- Levels increase automatically when enemies cleared
+- Difficulty scales infinitely
+- **Power-ups** available
+- Perfect for high-score runs
+
+**Strategy**: Focus on movement and positioning, use dash aggressively, prioritize Sniper enemies.
+
+---
+
+### ⏱️ TIME ATTACK Mode
+
+**Kill-based weapon progression**
+
+- No fragments or walls
+- **Start with basic weapon**
+- **Weapon upgrades every 10 kills** (+1 damage)
+- No power-ups (weapon IS the progression)
+- **Goal**: Maximize kills in shortest time
+- Enemy spawn rate increases with level
+
+**Strategy**: Aggressive playstyle, prioritize weak enemies for fast upgrades, don't miss shots.
+
+---
+
+### 🦸 BOSS RUSH Mode
+
+**Progressive boss gauntlet**
+
+- No fragments, no enemies, no walls
+- **Start with weapon unlocked**
+- **5 boss levels** with unique abilities:
+  
+  **Boss Level 1** - Basic Shooter
+  - Circular movement pattern
+  - Single-target shots
+  
+  **Boss Level 2** - Dasher
+  - Adds dash attacks
+  - More aggressive movement
+  
+  **Boss Level 3** - Teleporter
+  - Can teleport with cyan warning
+  - Unpredictable positioning
+  
+  **Boss Level 4** - Spike Master
+  - Summons spike traps
+  - Requires constant movement
+  
+  **Boss Level 5** - Ultimate Form
+  - **ALL ABILITIES COMBINED**
+  - Shoots + Dashes + Teleports + Spikes
+  - Maximum difficulty
+
+- HP scales: 50 + (level × 20)
+- 3-phase combat (100-60-30% HP breakpoints)
+
+**Strategy**: Learn patterns, dodge telegraphed attacks, save dash for emergencies.
+
+---
+
+### 🌊 HORDE Mode
+
+**Melee survival**
+
+- **Melee weapon only** (no shooting)
+- **Wave-based**: 10 waves per level
+- Wave difficulty: 5 + level×2 + wave×3 enemies
+- **No walls, no fragments, no power-ups**
+- All 4 enemy types spawn
+- **Left-click** to swing mace
+
+**Melee weapon stats**:
+- Damage: 2 per hit
+- Swing duration: 15 frames
+- Cooldown: 30 frames
+- Range: 50 pixels
+
+**Strategy**: Time swings carefully, kite enemies into groups, use dash to reposition.
+
+---
+
+## ⌨️ Controls
+
+### 🎮 Player 1
+
+| Action | Key |
+|--------|-----|
+| **Movement** | `W` `A` `S` `D` |
+| **Sprint** | `Left Ctrl` (hold) |
+| **Dash** | `Left Shift` |
+| **Shoot** | `Left Mouse` (aim with cursor) |
+| **Melee** | `Left Mouse` (Horde mode only) |
+| **Pause** | `ESC` |
+
+### 👥 Player 2 (Co-op)
+
+| Action | Key |
+|--------|-----|
+| **Movement** | `↑` `↓` `←` `→` |
+| **Sprint** | `Right Ctrl` |
+| **Dash** | `Right Shift` |
+
+### 💡 Advanced Techniques
 
 ```
-Level 1-2  → Basic Chase Enemies (no shooting)
-   ↓
-Level 3-4  → Enemies start shooting (slow projectiles)
-             First walls appear
-   ↓
-Level 5+   → INTENSE: Fast enemies, rapid-fire bullets
-             20+ walls, bullet hell scenarios
-             ⚠️ Weapon required to survive!
-```
-
-### 💰 Economy & Shop
-
-- **Earn coins** by collecting golden data fragments (1 coin per fragment)
-- **Weapon costs** scale with difficulty:
-  - 🟢 Easy: 5 coins
-  - 🟡 Normal: 10 coins
-  - 🔴 Hard: 20 coins
-  - 💀 Nightmare: 30 coins
-
----
-
-## 🕹️ Controls
-
-### 👤 Player 1 (Primary Controls)
-
-<table>
-<tr>
-<td width="50%">
-
-**🏃 Movement**
-- <kbd>W</kbd> Move Up
-- <kbd>A</kbd> Move Left  
-- <kbd>S</kbd> Move Down
-- <kbd>D</kbd> Move Right
-
-</td>
-<td width="50%">
-
-**⚡ Advanced Movement**
-- <kbd>Left Ctrl</kbd> Sprint (1.8x speed)
-- <kbd>Left Shift</kbd> Dash (quick teleport)
-  - *Cooldown: 45 frames (~0.75s)*
-  - *Distance: 60 pixels*
-
-</td>
-</tr>
-<tr>
-<td colspan="2">
-
-**🔫 Combat** *(After weapon purchase)*
-- <kbd>Mouse</kbd> Aim cursor
-- <kbd>Left Click</kbd> Fire (12-frame cooldown)
-
-**🎮 System**
-- <kbd>Space</kbd> Skip dialogues / Continue
-- <kbd>ESC</kbd> Quit to desktop
-
-</td>
-</tr>
-</table>
-
-### 👥 Player 2 (Co-op Mode)
-
-| Action | Keys |
-|--------|------|
-| Movement | <kbd>↑</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>→</kbd> |
-| Sprint | <kbd>Right Ctrl</kbd> |
-| Dash | <kbd>Right Shift</kbd> |
-| Combat | *Shares P1's mouse controls* |
-
-### 💡 Pro Tips
-
-```diff
-+ Dash through walls of bullets in emergencies
-+ Use Sprint + Dash combo for maximum mobility
-+ Hide behind walls to block enemy fire (Level 3+)
-+ Diagonal movement (W+D, etc.) is faster
-+ Save your Dash cooldown for critical moments
+DASH + SPRINT = Maximum mobility
+DASH through bullet patterns in emergencies
+Use walls (Story) to block enemy fire
+Maintain 2s combo window for bonus coins
+Power-up combos: SHIELD + RAPID_FIRE = invincible DPS
+Time Attack: Don't miss shots - accuracy > fire rate
+Boss Rush: Learn boss tells before attacks
+Horde: Swing timing is everything
 ```
 
 ---
@@ -143,157 +229,33 @@ Level 5+   → INTENSE: Fast enemies, rapid-fire bullets
 
 ### 📋 Requirements
 
-- **Python 3.8+** (Download from [python.org](https://www.python.org/downloads/))
-- **Pygame 2.5+** (Auto-installed via requirements.txt)
-- **~50 MB** disk space
-- **512 MB RAM** minimum
-
----
+- **Python 3.8+**
+- **Pygame 2.5+**
+- ~50 MB disk space
 
 ### 🐧 Linux / macOS
 
 ```bash
-# Clone the repository
-git clone https://github.com/BitJacker/VoidLoop.git
+# Clone repository
+git clone https://github.com/YourUsername/VoidLoop.git
 cd VoidLoop
 
 # Install dependencies
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 
-# Launch the game
+# Launch game
 python3 play.py
 ```
-
-**Alternative: One-Line Setup**
-```bash
-git clone https://github.com/BitJacker/VoidLoop.git && cd VoidLoop && pip3 install -r requirements.txt && python3 play.py
-```
-
----
 
 ### 🪟 Windows
 
-#### Option A: Automatic Setup
-
-1. Download the repository as [ZIP file](https://github.com/BitJacker/VoidLoop/archive/refs/heads/main.zip)
-2. Extract to a folder
-3. Double-click `setup.bat`
-4. Run `play.py` (double-click or use `python play.py`)
-
-#### Option B: Manual Setup
-
 ```powershell
-# Install Python 3.8+ from python.org first!
-# Then open PowerShell in the game folder:
-
+# Install dependencies
 pip install -r requirements.txt
+
+# Launch game
 python play.py
 ```
-
----
-
-### 🍎 macOS (via Homebrew)
-
-```bash
-# Install Homebrew (if not already installed)
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-# Install Python
-brew install python3
-
-# Clone and run
-git clone https://github.com/BitJacker/VoidLoop.git
-cd VoidLoop
-pip3 install -r requirements.txt
-python3 play.py
-```
-
----
-
-## 📖 How to Play
-
-### 🎯 Objective
-
-**Survive and synchronize.** Collect golden **data fragments** to fill the synchronization bar. Complete the required fragments to advance to the next level. Each level increases difficulty exponentially.
-
-### 🎮 Gameplay Loop
-
-```mermaid
-graph LR
-    A[Story Intro] --> B[Play Level]
-    B --> C{Collect Fragments}
-    C -->|Death| D[Game Over]
-    D --> A
-    C -->|Victory| E[Shop Screen]
-    E --> F{Buy Weapon?}
-    F -->|Yes| G[Unlock Shooting]
-    F -->|No| H[Save Coins]
-    G --> I[Next Level]
-    H --> I
-    I --> A
-```
-
-### 📊 Difficulty Progression
-
-| Difficulty | Speed Mult. | Spawn Rate | Weapon Cost |
-|------------|-------------|------------|-------------|
-| 🟢 **Easy** | 0.7x | Low | 5 coins |
-| 🟡 **Normal** | 1.0x | Medium | 10 coins |
-| 🔴 **Hard** | 1.4x | High | 20 coins |
-| 💀 **Nightmare** | 1.9x | Very High | 30 coins |
-
-### 🏆 Enemy Evolution
-
-**Levels 1-2: Tutorial**
-- Enemies only chase you
-- No projectiles
-- No walls
-- Focus on movement mechanics
-
-**Levels 3-4: Advanced**
-- ⚠️ Enemies start shooting slow projectiles
-- 5-10 wall obstacles appear
-- Enemy speed increases by 30%
-- Shoot cooldown: 120-220 frames
-
-**Levels 5+: Expert / Bullet Hell**
-- 🔥 **Enemies shoot rapidly** (35-70 frame cooldown)
-- 💨 **Fast projectiles** (speed: 11 units)
-- 🧱 **20+ wall obstacles**
-- 🚀 **Enemy speed: 1.8x+**
-- 💀 **Survival without weapon is nearly impossible**
-
----
-
-## 💾 Save System
-
-### 📂 Save Location
-
-```
-VoidLoop/
-└── saves/
-    └── savegame.json
-```
-
-**Auto-saves when:**
-- ✅ You complete a level
-- ✅ You purchase a weapon
-- ✅ You enter the shop screen
-
-**Save Data:**
-```json
-{
-  "level": 5,
-  "coins": 37
-}
-```
-
-### 🔄 Continue vs New Game
-
-The launcher (`play.py`) automatically detects your save file:
-
-- **CONTINUE GAME**: Resume from your saved level with all coins
-- **NEW GAME**: Start fresh (asks for confirmation if save exists)
 
 ---
 
@@ -301,301 +263,252 @@ The launcher (`play.py`) automatically detects your save file:
 
 ```
 VoidLoop/
-├── play.py                    # 🎮 Launcher with config menu + save detection
-├── voidloopgame.py           # 🎯 Main game engine (3000+ lines)
-├── requirements.txt          # 📦 Python dependencies
-├── setup.bat                 # 🪟 Windows auto-setup script
-├── setup.sh                  # 🐧 Linux/Mac auto-setup script
-│
-├── VoidLoop/                 # Game directory (created after setup)
-│   ├── saves/                # 💾 Save files (auto-generated)
-│   │   └── savegame.json
-│   │
-│   └── lang/                 # 🌍 Localization files
-│       ├── dialogues_it.json # Italian
-│       ├── dialogues_en.json # English
-│       ├── dialogues_es.json # Spanish
-│       └── dialogues_fr.json # French
-│
-├── README.md                 # 📖 This file
-├── LICENSE                   # 📜 Usage rights
-├── .gitignore               # 🔒 Git ignore rules
-└── venv/                    # 🐍 Virtual environment (optional)
+├── play.py                    # Launcher with game mode selection
+├── VoidLoop/
+│   ├── voidloopgame.py        # Main game engine
+│   ├── lang/                  # Localization files
+│   │   ├── dialogues_it.json  # Italian
+│   │   ├── dialogues_en.json  # English
+│   │   ├── dialogues_es.json  # Spanish
+│   │   └── dialogues_fr.json  # French
+│   └── saves/
+│       └── savegame.json      # Progress save
+├── requirements.txt           # Python dependencies
+└── README.md                  # This file
 ```
 
 ---
 
-## 🔧 Troubleshooting
+## 🎯 Difficulty Levels
 
-### ❌ Common Issues
+| Difficulty | Speed Mult. | Spawn Rate | Weapon Cost | Recommended For |
+|------------|-------------|------------|-------------|-----------------|
+| 🟢 **Easy** | 0.7x | 0.5% | 5 coins | Beginners |
+| 🟡 **Normal** | 1.0x | 0.9% | 10 coins | Balanced play |
+| 🔴 **Hard** | 1.4x | 1.5% | 20 coins | Veterans |
+| 💀 **Nightmare** | 1.9x | 2.5% | 30 coins | Masochists |
 
-<details>
-<summary><b>Error: "No module named 'pygame'"</b></summary>
+---
 
-**Solution:**
-```bash
-pip install pygame --upgrade --user
-```
+## 💾 Save System
 
-Or if using pip3:
-```bash
-pip3 install pygame --upgrade
-```
-</details>
+### Auto-saves:
+- ✅ Level completion
+- ✅ Weapon purchase
+- ✅ Shop entry
 
-<details>
-<summary><b>Error: "Game file not found"</b></summary>
+### Manual save:
+- Press `ESC` → **SAVE GAME**
 
-**Cause:** `voidloopgame.py` is not in the `VoidLoop/` folder.
+**Save location**: `VoidLoop/saves/savegame.json`
 
-**Solution:**
-```bash
-# Verify file structure
-ls -la VoidLoop/voidloopgame.py
-
-# If missing, copy it
-cp voidloopgame.py VoidLoop/
-```
-</details>
-
-<details>
-<summary><b>Error: "Dialogue files not found"</b></summary>
-
-**Cause:** Missing localization files in `VoidLoop/lang/`
-
-**Solution:**
-Create the required JSON files. Minimum example for `dialogues_en.json`:
+**Save data includes**:
 ```json
 {
-  "prologue": [
-    "SYSTEM: Initialization...",
-    "Welcome to VOID LOOP.",
-    "Press SPACE to continue."
-  ],
-  "game_over": [
-    "CONNECTION LOST.",
-    "Rebooting...",
-    "Press SPACE."
-  ]
+  "level": 12,
+  "coins": 187,
+  "achievements": []
 }
 ```
-</details>
-
-<details>
-<summary><b>Game is laggy / slow framerate</b></summary>
-
-**Solutions:**
-- Close background applications (browsers, Discord, etc.)
-- Use **windowed mode** instead of fullscreen
-- Update your graphics drivers
-- Reduce screen resolution in launcher settings
-</details>
-
-<details>
-<summary><b>Save file not working</b></summary>
-
-**Solutions:**
-1. Check folder permissions:
-```bash
-chmod 755 VoidLoop/saves/
-```
-
-2. Verify save file exists:
-```bash
-cat VoidLoop/saves/savegame.json
-```
-
-3. If corrupted, delete and restart:
-```bash
-rm VoidLoop/saves/savegame.json
-```
-</details>
-
-<details>
-<summary><b>Linux: "Permission denied" when running setup.sh</b></summary>
-
-**Solution:**
-```bash
-chmod +x setup.sh
-./setup.sh
-```
-</details>
 
 ---
 
 ## 🎨 Customization
 
-### 🖌️ Adding New Ship Colors
+### Ship Colors
 
 Edit `voidloopgame.py`:
+
 ```python
 COLOR_MAP = {
     "Neon Green": (0, 255, 150),
     "Cyber Blue": (0, 150, 255),
     "Void Purple": (180, 0, 255),
-    "Your Color": (R, G, B)  # Add here
+    "Your Color": (R, G, B)  # Add custom color
 }
 ```
 
-Then update `play.py` launcher:
-```python
-("◆ SHIP COLOR", self.color_var, 
- ["Neon Green", "Cyber Blue", "Void Purple", "Your Color"], 
- "#00ffff"),
-```
+### Difficulty Tweaking
 
-### ⚙️ Tweaking Difficulty
-
-Edit `DIFF_SETTINGS` in `voidloopgame.py`:
 ```python
 DIFF_SETTINGS = {
     "CUSTOM": {
-        "speed_mult": 1.2,    # Enemy speed multiplier
-        "spawn_rate": 0.012,  # Spawn chance per frame
-        "cost": 15            # Weapon price in coins
+        "speed_mult": 1.2,    # Enemy speed
+        "spawn_rate": 0.012,  # Spawn frequency
+        "cost": 15            # Weapon price
     }
 }
 ```
 
-### 🎵 Adding Background Music (Optional)
+---
 
-```python
-# At the top of voidloopgame.py
-pygame.mixer.init()
-pygame.mixer.music.load("music/soundtrack.mp3")
-pygame.mixer.music.play(-1)  # Loop forever
-```
+## 🌍 Languages
+
+Fully localized in 4 languages:
+- 🇮🇹 **Italian** (Italiano)
+- 🇬🇧 **English**
+- 🇪🇸 **Spanish** (Español)
+- 🇫🇷 **French** (Français)
+
+All UI, dialogues, and pause menu translated.
 
 ---
 
-## ❓ FAQ
+## 🛠️ Troubleshooting
 
 <details>
-<summary><b>Q: Is there an endless mode?</b></summary>
+<summary><b>Game file not found error</b></summary>
 
-**A:** Not yet! It's planned for v1.1. Currently, the game progressively gets harder with each level.
+**Solution**: Ensure file structure matches:
+```
+VoidLoop/
+├── play.py
+└── VoidLoop/
+    └── voidloopgame.py
+```
 </details>
 
 <details>
-<summary><b>Q: Can I play with a controller/gamepad?</b></summary>
+<summary><b>No module named 'pygame'</b></summary>
 
-**A:** Not in v2.0. Gamepad support is planned for v2.2.
+**Solution**:
+```bash
+pip install pygame --upgrade
+```
 </details>
 
 <details>
-<summary><b>Q: What happens when I die?</b></summary>
+<summary><b>Low framerate / lag</b></summary>
 
-**A:** You respawn at the current level with the same coins and weapon status. Progress is NOT lost on death.
+**Solutions**:
+- Use windowed mode
+- Close background apps
+- Update graphics drivers
 </details>
 
 <details>
-<summary><b>Q: How many levels are there?</b></summary>
+<summary><b>Save file corruption</b></summary>
 
-**A:** The game is **infinite**. Levels progressively get harder with no upper limit. Current record is level 12+.
-</details>
-
-<details>
-<summary><b>Q: Can I modify the source code?</b></summary>
-
-**A:** You can study it for educational purposes, but redistribution of modified versions is prohibited. See [License](#-license).
-</details>
-
-<details>
-<summary><b>Q: Where can I report bugs?</b></summary>
-
-**A:** Create an issue on GitHub or contact the developer directly.
+**Solution**:
+```bash
+rm VoidLoop/saves/savegame.json
+# Start new game
+```
 </details>
 
 ---
 
 ## 🗺️ Roadmap
 
-### ✅ Version 2.0 (Current)
-- [x] Dash & Sprint mechanics
-- [x] Solid wall obstacles
-- [x] Level timer
-- [x] Enhanced shop UI
-- [x] Save game detection in launcher
+### ✅ Version 3.0 (Current)
+- [x] 5 unique game modes
+- [x] Enhanced boss mechanics (5 levels)
+- [x] Melee combat system
+- [x] Weapon evolution (Time Attack)
+- [x] Pause menu with save
+- [x] Multi-language support
 
-### 🔜 Version 2.1 (Planned)
-- [ ] Endless survival mode
-- [ ] Global leaderboards
-- [ ] More weapon types (shotgun, laser, etc.)
-- [ ] Temporary power-ups (shield, speed boost)
-
-### 🔮 Future (Version 2.2+)
-- [ ] Boss fights every 5 levels
-- [ ] Online multiplayer
-- [ ] Level editor
-- [ ] Gamepad support
+### 🔜 Version 3.1 (Planned)
 - [ ] Achievements system
-- [ ] Sound effects & music
-- [ ] Particle effects
+- [ ] Statistics tracking
+- [ ] Sound effects
+- [ ] Background music
+- [ ] More power-ups
+
+### 🔮 Version 3.2+ (Future)
+- [ ] Online leaderboards
+- [ ] Gamepad support
+- [ ] Level editor
+- [ ] Daily challenges
+- [ ] Multiplayer
 
 ---
 
 ## 📜 License
 
-**VoidLoop** - Copyright © 2026 BitJacker  
+**VoidLoop Enhanced Edition** - Copyright © 2026  
 **All Rights Reserved**
 
-### ✅ You MAY:
-- ✔️ Download and play the game for personal use
-- ✔️ Study the source code for educational purposes
-- ✔️ Share the game with friends (via GitHub link)
+### ✅ Permitted:
+- ✔️ Personal use and gameplay
+- ✔️ Educational study of source code
+- ✔️ Sharing via GitHub link
 
-### ❌ You MAY NOT:
-- ❌ Modify and redistribute the code
-- ❌ Use the game or code for commercial purposes
-- ❌ Sell the game or derivative works
-- ❌ Use assets (code, dialogues, graphics) in other projects
-
-For licensing inquiries, contact the author.
+### ❌ Prohibited:
+- ❌ Commercial use
+- ❌ Code redistribution
+- ❌ Asset reuse in other projects
+- ❌ Modified versions
 
 ---
 
 ## 👤 Credits
 
-### 🎮 Development
-**Created by:** BitJacker  
-**Engine:** Pygame 2.5+  
-**Language:** Python 3.8+
+**Created by**: BitJacker  
+**Engine**: Pygame 2.5+  
+**Language**: Python 3.8+  
+**Version**: 3.0 Enhanced Edition
 
-### 🙏 Special Thanks
-- **Pygame Community** for the excellent game framework
-- **Python Software Foundation** for the language
-- **Beta Testers** who provided valuable feedback
-- **You** for playing VoidLoop!
+### Special Thanks
+- Pygame Community
+- Python Software Foundation
+- All beta testers
+- **You** for playing!
 
 ---
 
-## 🌐 Links
+## 🎮 Pro Tips
 
-- 📺 **Gameplay Video**: [Watch on YouTube](https://youtu.be/vAMfQcXAbkE)
-- 📦 **Download**: [GitHub Releases](#)
-- 🐛 **Report Bugs**: [GitHub Issues](#)
-- 📖 **Documentation**: [Read the Docs](#)
+```
+🎯 GENERAL
+- Dash cooldown is 45 frames (~0.75s) - use wisely
+- Combo window is 120 frames (2s) - chain kills fast
+- Sprint drains no resource - use liberally
+
+📖 STORY MODE
+- Buy weapon ASAP (levels 1-3 are tutorial)
+- Walls block enemy bullets - use as cover
+- Save SHIELD power-up for boss Phase 3
+- Boss every 5 levels - prepare with coins
+
+♾️ ENDLESS
+- No walls = pure movement skill
+- Prioritize Sniper enemies (long range)
+- Level difficulty never caps - survive as long as possible
+
+⏱️ TIME ATTACK
+- Every 10 kills = +1 damage
+- Speed > accuracy until weapon maxed
+- Kamikaze enemies = easy kills for upgrades
+
+🦸 BOSS RUSH
+- Boss Level 1-2: Learn basic patterns
+- Boss Level 3: Watch for teleport flashes
+- Boss Level 4: Keep moving to avoid spikes
+- Boss Level 5: Requires mastery of all mechanics
+
+🌊 HORDE
+- Melee timing >>> button mashing
+- Swing cooldown is 30 frames - count it
+- Kite enemies into tight groups
+- Tank enemies take 2 swings - prioritize them last
+```
 
 ---
 
 <div align="center">
 
-## 💖 Enjoy the Game!
+## 💖 Enjoy VoidLoop Enhanced Edition!
 
-**If you like VoidLoop, consider:**
-- ⭐ Starring this repository
-- 🔄 Sharing with friends
-- 💬 Leaving feedback
-
-### Made with ❤️ and ☕ by BitJacker
+**Made with ❤️ and ☕ by BitJacker**
 
 [![Python](https://img.shields.io/badge/Made%20with-Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![Pygame](https://img.shields.io/badge/Powered%20by-Pygame-green?style=for-the-badge&logo=python&logoColor=white)](https://www.pygame.org/)
+[![Pygame](https://img.shields.io/badge/Powered%20by-Pygame-green?style=for-the-badge)](https://www.pygame.org/)
 
-[🔝 Back to Top](#-voidloop-cyber-survival)
+[🔝 Back to Top](#-voidloop-enhanced-edition)
 
 ---
 
-**Version 2.0 - BitJacker Edition** | **2026**
+**Version 3.0 Enhanced Edition** | **2026**
 
 </div>
