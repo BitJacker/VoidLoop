@@ -20,16 +20,13 @@ class NeonButton(tk.Canvas):
         self.delete("all")
         glow = 4 if self.hover else 2
         
-        # Effetto glow
         for i in range(glow, 0, -1):
             alpha = 40 - (i * 8)
             glow_color = self.color if self.hover else "#333333"
             self.create_rectangle(i, i, self.width-i, 50-i, outline=glow_color, width=1)
         
-        # Bordo principale
         self.create_rectangle(2, 2, self.width-2, 48, outline=self.color if self.hover else "#444444", width=2)
         
-        # Testo
         self.create_text(self.width//2, 25, text=self.text, fill=self.color if self.hover else "#888888", 
                         font=("Courier New", 14, "bold"))
     
@@ -48,16 +45,14 @@ class NeonButton(tk.Canvas):
 class VoidLoopLauncher:
     def __init__(self, root):
         self.root = root
-        self.root.title("VoidLoop - BitJacker Edition")
-        self.root.geometry("500x850")
+        self.root.title("VoidLoop - Enhanced Edition")
+        self.root.geometry("600x900")
         self.root.configure(bg="#0a0a0a")
         self.root.resizable(False, False)
         
-        # Percorso salvataggio in VoidLoop/saves/
         self.saves_dir = os.path.join("VoidLoop", "saves")
         self.save_path = os.path.join(self.saves_dir, "savegame.json")
         
-        # Crea cartella saves se non esiste
         if not os.path.exists(self.saves_dir):
             try:
                 os.makedirs(self.saves_dir)
@@ -70,14 +65,13 @@ class VoidLoopLauncher:
         self.mode_var = tk.StringVar(value="1 PLAYER")
         self.screen_var = tk.StringVar(value="WINDOWED")
         self.diff_var = tk.StringVar(value="NORMAL")
+        self.game_mode_var = tk.StringVar(value="STORY")
         
-        # Carica info save
         self.save_exists, self.save_level, self.save_coins = self.load_save_info()
         
         self.create_ui()
     
     def load_save_info(self):
-        """Carica informazioni sul salvataggio esistente"""
         if os.path.exists(self.save_path):
             try:
                 with open(self.save_path, "r") as f:
@@ -90,7 +84,6 @@ class VoidLoopLauncher:
         return False, 1, 0
     
     def delete_save(self):
-        """Elimina il salvataggio esistente"""
         if os.path.exists(self.save_path):
             try:
                 os.remove(self.save_path)
@@ -102,45 +95,44 @@ class VoidLoopLauncher:
         return True
     
     def create_ui(self):
-        # === HEADER ===
-        header = tk.Frame(self.root, bg="#0a0a0a")
-        header.pack(pady=30)
+        # === CONTAINER PRINCIPALE ===
+        main_container = tk.Frame(self.root, bg="#0a0a0a")
+        main_container.pack(fill=tk.BOTH, expand=True, padx=20, pady=20)
         
-        # Titolo con effetto glitch
-        title = tk.Label(header, text="◢ VOID LOOP ◣", font=("Courier New", 32, "bold"),
-                        fg="#00ff96", bg="#0a0a0a")
-        title.pack()
+        # === HEADER QUADRATO ===
+        header_box = tk.Frame(main_container, bg="#0f0f0f", highlightbackground="#00ff96", 
+                             highlightthickness=3)
+        header_box.pack(fill=tk.X, pady=(0, 15))
         
-        subtitle = tk.Label(header, text="[ NEURAL SYNCHRONIZATION TERMINAL ]", 
-                           font=("Courier New", 10), fg="#00ffff", bg="#0a0a0a")
-        subtitle.pack(pady=5)
+        title = tk.Label(header_box, text="◢ VOID LOOP ◣", font=("Courier New", 36, "bold"),
+                        fg="#00ff96", bg="#0f0f0f")
+        title.pack(pady=(15, 5))
         
-        # Linea separatrice
-        separator = tk.Canvas(self.root, width=400, height=2, bg="#0a0a0a", highlightthickness=0)
-        separator.pack()
-        separator.create_line(0, 1, 400, 1, fill="#00ff96", width=2)
+        subtitle = tk.Label(header_box, text="[ ENHANCED EDITION - v3.0 ]", 
+                           font=("Courier New", 11), fg="#00ffff", bg="#0f0f0f")
+        subtitle.pack(pady=(0, 15))
         
-        # === SAVE GAME INFO ===
+        # === SAVE GAME BOX ===
         if self.save_exists:
-            save_frame = tk.Frame(self.root, bg="#0a0a0a")
-            save_frame.pack(pady=15)
+            save_container = tk.Frame(main_container, bg="#0f0f0f", highlightbackground="#00ff96", 
+                                     highlightthickness=2)
+            save_container.pack(fill=tk.X, pady=(0, 15))
             
-            # Box save
-            save_box = tk.Frame(save_frame, bg="#1a1a1a", highlightbackground="#00ff96", 
-                               highlightthickness=2, padx=15, pady=10)
-            save_box.pack()
+            tk.Label(save_container, text="[ SAVE GAME FOUND ]", font=("Courier New", 11, "bold"),
+                    fg="#00ff96", bg="#0f0f0f").pack(pady=(10, 5))
             
-            tk.Label(save_box, text="[ SAVE GAME FOUND ]", font=("Courier New", 10, "bold"),
-                    fg="#00ff96", bg="#1a1a1a").pack()
-            
-            tk.Label(save_box, text=f"Level: {self.save_level}  |  Coins: {self.save_coins}",
-                    font=("Courier New", 9), fg="#ffffff", bg="#1a1a1a").pack(pady=5)
+            tk.Label(save_container, text=f"Level: {self.save_level}  |  Coins: {self.save_coins}",
+                    font=("Courier New", 10), fg="#ffffff", bg="#0f0f0f").pack(pady=(0, 10))
         
-        # === CONFIGURAZIONE ===
-        config_frame = tk.Frame(self.root, bg="#0a0a0a")
-        config_frame.pack(pady=15)
+        # === CONFIGURAZIONE BOX ===
+        config_container = tk.Frame(main_container, bg="#0f0f0f", highlightbackground="#666666", 
+                                   highlightthickness=2)
+        config_container.pack(fill=tk.X, pady=(0, 15))
         
-        # Stile personalizzato per combobox
+        config_title = tk.Label(config_container, text="[ CONFIGURATION ]", 
+                               font=("Courier New", 12, "bold"), fg="#00ffff", bg="#0f0f0f")
+        config_title.pack(pady=(10, 10))
+        
         style = ttk.Style()
         style.theme_use('clam')
         style.configure("Neon.TCombobox",
@@ -157,89 +149,131 @@ class VoidLoopLauncher:
                  selectforeground=[('readonly', '#000000')])
         
         settings = [
-            ("◆ LANGUAGE", self.lang_var, ["it", "en", "es", "fr"], "#00ff96"),
-            ("◆ SHIP COLOR", self.color_var, ["Neon Green", "Cyber Blue", "Void Purple"], "#00ffff"),
-            ("◆ MODE", self.mode_var, ["1 PLAYER", "2 PLAYERS"], "#b400ff"),
-            ("◆ SCREEN", self.screen_var, ["WINDOWED", "FULLSCREEN"], "#00ff96"),
-            ("◆ DIFFICULTY", self.diff_var, ["EASY", "NORMAL", "HARD", "NIGHTMARE"], "#ff0066")
+            ("LANGUAGE", self.lang_var, ["it", "en", "es", "fr"], "#00ff96"),
+            ("SHIP COLOR", self.color_var, ["Neon Green", "Cyber Blue", "Void Purple"], "#00ffff"),
+            ("MODE", self.mode_var, ["1 PLAYER", "2 PLAYERS"], "#b400ff"),
+            ("SCREEN", self.screen_var, ["WINDOWED", "FULLSCREEN"], "#00ff96"),
+            ("DIFFICULTY", self.diff_var, ["EASY", "NORMAL", "HARD", "NIGHTMARE"], "#ff0066")
         ]
         
         for label_text, var, options, color in settings:
-            # Frame per ogni opzione
-            option_frame = tk.Frame(config_frame, bg="#0a0a0a")
-            option_frame.pack(pady=8)
+            option_frame = tk.Frame(config_container, bg="#0f0f0f")
+            option_frame.pack(pady=5, padx=20, fill=tk.X)
             
-            # Label
-            label = tk.Label(option_frame, text=label_text, font=("Courier New", 11, "bold"),
-                           fg=color, bg="#0a0a0a", width=18, anchor="w")
-            label.pack(side=tk.LEFT, padx=(0, 10))
+            label = tk.Label(option_frame, text=label_text, font=("Courier New", 10, "bold"),
+                           fg=color, bg="#0f0f0f", width=14, anchor="w")
+            label.pack(side=tk.LEFT, padx=(0, 15))
             
-            # Combobox
             combo = ttk.Combobox(option_frame, textvariable=var, values=options, 
-                               state="readonly", width=18, font=("Courier New", 10),
+                               state="readonly", width=20, font=("Courier New", 9),
                                style="Neon.TCombobox")
             combo.pack(side=tk.LEFT)
         
-        # === INFO DIFFICOLTÀ ===
-        info_frame = tk.Frame(self.root, bg="#0a0a0a")
-        info_frame.pack(pady=15)
+        # Spazio finale
+        tk.Label(config_container, text="", bg="#0f0f0f").pack(pady=5)
         
-        info_title = tk.Label(info_frame, text="[ DIFFICULTY INFO ]", 
-                             font=("Courier New", 9, "bold"), fg="#666666", bg="#0a0a0a")
-        info_title.pack()
+        # === GAME MODE BOX ===
+        mode_container = tk.Frame(main_container, bg="#0f0f0f", highlightbackground="#ff0066", 
+                                 highlightthickness=2)
+        mode_container.pack(fill=tk.X, pady=(0, 15))
+        
+        mode_title = tk.Label(mode_container, text="[ SELECT GAME MODE ]", 
+                             font=("Courier New", 12, "bold"), fg="#ff0066", bg="#0f0f0f")
+        mode_title.pack(pady=(10, 10))
+        
+        game_modes = [
+            ("STORY", "#00ff96"),
+            ("ENDLESS", "#ffaa00"),
+            ("TIME ATTACK", "#00ffff"),
+            ("BOSS RUSH", "#b400ff"),
+            ("HORDE", "#ff0066")
+        ]
+        
+        # Griglia di bottoni quadrati
+        grid_frame = tk.Frame(mode_container, bg="#0f0f0f")
+        grid_frame.pack(pady=(0, 15))
+        
+        self.mode_buttons = []
+        for i, (mode_name, color) in enumerate(game_modes):
+            row = i // 3
+            col = i % 3
+            
+            btn = tk.Button(grid_frame, text=mode_name, 
+                          command=lambda m=mode_name.replace(" ", "_"): self.select_game_mode(m),
+                          font=("Courier New", 9, "bold"),
+                          bg="#1a1a1a", fg=color,
+                          activebackground="#2a2a2a", activeforeground=color,
+                          relief=tk.FLAT, width=12, height=2,
+                          highlightthickness=2, highlightbackground="#333333")
+            btn.grid(row=row, column=col, padx=5, pady=5)
+            
+            self.mode_buttons.append((btn, mode_name.replace(" ", "_"), color))
+        
+        # Seleziona STORY di default
+        self.select_game_mode("STORY")
+        
+        # === INFO BOX ===
+        info_container = tk.Frame(main_container, bg="#0f0f0f", highlightbackground="#666666", 
+                                 highlightthickness=2)
+        info_container.pack(fill=tk.X, pady=(0, 15))
         
         diff_info = {
-            "EASY": "Cost: 5P | Speed: 70%",
-            "NORMAL": "Cost: 10P | Speed: 100%",
-            "HARD": "Cost: 20P | Speed: 140%",
-            "NIGHTMARE": "Cost: 30P | Speed: 190%"
+            "EASY": "Cost: 5P | Speed: 70% | More forgiving",
+            "NORMAL": "Cost: 10P | Speed: 100% | Balanced",
+            "HARD": "Cost: 20P | Speed: 140% | Challenging",
+            "NIGHTMARE": "Cost: 30P | Speed: 190% | Extreme"
         }
         
-        self.info_label = tk.Label(info_frame, text=diff_info["NORMAL"],
-                                  font=("Courier New", 9), fg="#888888", bg="#0a0a0a")
-        self.info_label.pack(pady=5)
+        self.info_label = tk.Label(info_container, text=diff_info["NORMAL"],
+                                  font=("Courier New", 9), fg="#888888", bg="#0f0f0f")
+        self.info_label.pack(pady=12)
         
-        # Update info quando cambia difficoltà
         def update_info(*args):
             self.info_label.config(text=diff_info.get(self.diff_var.get(), ""))
         self.diff_var.trace('w', update_info)
         
-        # === PULSANTI ===
-        button_frame = tk.Frame(self.root, bg="#0a0a0a")
-        button_frame.pack(pady=20)
+        # === PULSANTI AZIONE ===
+        button_container = tk.Frame(main_container, bg="#0a0a0a")
+        button_container.pack(fill=tk.X, pady=(0, 10))
         
         if self.save_exists:
-            # Bottone CONTINUE (se c'è un save)
-            continue_btn = NeonButton(button_frame, "▶ CONTINUE GAME", 
+            continue_btn = NeonButton(button_container, "▶ CONTINUE GAME", 
                                      lambda: self.start_game(continue_save=True), 
-                                     color="#00ff96", width=320)
-            continue_btn.pack(pady=8)
+                                     color="#00ff96", width=560)
+            continue_btn.pack(pady=5)
             
-            # Bottone NEW GAME
-            new_game_btn = NeonButton(button_frame, "◉ NEW GAME", 
+            new_game_btn = NeonButton(button_container, "◉ NEW GAME", 
                                       lambda: self.start_game(continue_save=False), 
-                                      color="#ffaa00", width=320)
-            new_game_btn.pack(pady=8)
+                                      color="#ffaa00", width=560)
+            new_game_btn.pack(pady=5)
         else:
-            # Bottone START (se non c'è un save)
-            start_btn = NeonButton(button_frame, "▶ START GAME", 
+            start_btn = NeonButton(button_container, "▶ START GAME", 
                                   lambda: self.start_game(continue_save=False), 
-                                  color="#00ff96", width=320)
-            start_btn.pack(pady=8)
+                                  color="#00ff96", width=560)
+            start_btn.pack(pady=5)
         
-        # Bottone EXIT
-        exit_btn = NeonButton(button_frame, "✕ EXIT TERMINAL", 
-                             self.root.quit, color="#ff0066", width=320)
-        exit_btn.pack(pady=8)
+        exit_btn = NeonButton(button_container, "✕ EXIT", 
+                             self.root.quit, color="#ff0066", width=560)
+        exit_btn.pack(pady=5)
         
         # === FOOTER ===
-        footer = tk.Label(self.root, text="v2.0 | BitJacker Edition | 2026",
+        footer = tk.Label(self.root, text="v3.0 | Enhanced Edition | 2026",
                          font=("Courier New", 8), fg="#333333", bg="#0a0a0a")
         footer.pack(side=tk.BOTTOM, pady=10)
     
+    def select_game_mode(self, mode):
+        """Evidenzia il game mode selezionato"""
+        self.game_mode_var.set(mode)
+        
+        for btn, btn_mode, color in self.mode_buttons:
+            if btn_mode == mode:
+                btn.config(highlightbackground=color, highlightthickness=3, 
+                          bg="#2a2a2a", relief=tk.SOLID)
+            else:
+                btn.config(highlightbackground="#333333", highlightthickness=2, 
+                          bg="#1a1a1a", relief=tk.FLAT)
+    
     def start_game(self, continue_save=True):
-        """Avvia il gioco con o senza il save esistente"""
-        # Se NEW GAME e c'è un save, chiedi conferma ed elimina
         if not continue_save and self.save_exists:
             response = messagebox.askyesno(
                 "New Game",
@@ -247,10 +281,10 @@ class VoidLoopLauncher:
                 icon='warning'
             )
             if not response:
-                return  # Annulla
+                return
             
             if not self.delete_save():
-                return  # Errore nell'eliminazione
+                return
         
         # Raccogli parametri
         lang = self.lang_var.get()
@@ -258,10 +292,11 @@ class VoidLoopLauncher:
         mode = self.mode_var.get()
         screen_mode = self.screen_var.get()
         diff = self.diff_var.get()
+        game_mode = self.game_mode_var.get()
         
         self.root.destroy()
         
-        # Avvia il gioco
+        # Avvia il gioco con il nome file corretto
         script_path = os.path.join("VoidLoop", "voidloopgame.py")
         
         if not os.path.exists(script_path):
@@ -269,10 +304,10 @@ class VoidLoopLauncher:
             return
         
         try:
-            subprocess.run(["python3", script_path, lang, color, mode, screen_mode, diff])
+            subprocess.run(["python3", script_path, lang, color, mode, screen_mode, diff, game_mode])
         except FileNotFoundError:
             try:
-                subprocess.run(["python", script_path, lang, color, mode, screen_mode, diff])
+                subprocess.run(["python", script_path, lang, color, mode, screen_mode, diff, game_mode])
             except Exception as e:
                 messagebox.showerror("Error", f"Failed to launch game:\n{e}")
 
