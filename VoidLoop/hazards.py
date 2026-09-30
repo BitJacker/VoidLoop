@@ -303,15 +303,19 @@ class GravityWell(Hazard):
     """A slowly drifting singularity that drags players and bullets towards it."""
     CORE = 18
 
-    def __init__(self, center, radius=300, strength=2.6, phase=0.0, color=(190, 140, 255)):
+    def __init__(self, center, radius=300, strength=2.6, phase=0.0, color=(190, 140, 255), drift=(110, 70)):
         self.c0 = Vector2(center)
-        self.pos = Vector2(center)
         self.radius, self.strength, self.phase, self.color = radius, strength, phase, color
+        self.drift = drift
         self.t = 0
+        self.pos = self._path(0)
+
+    def _path(self, t):
+        return self.c0 + Vector2(math.cos(t * 0.006 + self.phase) * self.drift[0], math.sin(t * 0.009 + self.phase) * self.drift[1])
 
     def update(self, world):
         self.t += 1
-        self.pos = self.c0 + Vector2(math.cos(self.t * 0.006 + self.phase) * 110, math.sin(self.t * 0.009 + self.phase) * 70)
+        self.pos = self._path(self.t)
         for p in world.alive_players():
             if p.vulnerable() and p.pos.distance_to(self.pos) < self.CORE + p.r:
                 push = (p.pos - self.pos)

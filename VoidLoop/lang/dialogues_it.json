@@ -1,18 +1,254 @@
 {
+    "_speakers": {
+        "SISTEMA": "system",
+        "SCONOSCIUTO": "echo",
+        "ECO": "echo",
+        "VUOTO": "void",
+        "SENTINELLA": "boss_sentinel",
+        "TESSITRICE": "boss_weaver",
+        "MURO DI FUOCO": "boss_inferno",
+        "ARCHIVISTA": "boss_cryo",
+        "ANOMALIA": "boss_glitch",
+        "ORIGINE": "boss_origin"
+    },
+
     "prologue": [
         "SISTEMA: Inizializzazione protocollo VoidLoop...",
-        "SISTEMA: Connessione stabilita.",
+        "SISTEMA: Caricamento profilo Runner... profilo non trovato.",
+        "SISTEMA: Connessione stabilita. Rilevato processo non registrato.",
         "SCONOSCIUTO: Finalmente... qualcuno si è svegliato.",
-        "SCONOSCIUTO: Ti trovi nel cuore del Vuoto.",
-        "SCONOSCIUTO: Raccogli i Frammenti d'Oro per ripristinare il sistema.",
-        "SISTEMA: Attenzione! Droni di sicurezza attivi."
+        "SCONOSCIUTO: Non provare a parlare, non c'è tempo. Ti trovi nel cuore del Vuoto.",
+        "SCONOSCIUTO: Da qui vedo poco. Solo luce. Frammenti d'oro sparsi ovunque.",
+        "SCONOSCIUTO: Raccoglili, Runner. Ogni frammento ripristina un po' del sistema... e un po' di me.",
+        "SISTEMA: Attenzione! Droni di sicurezza attivi. Procedura di contenimento anomalie: ELIMINAZIONE.",
+        "SCONOSCIUTO: Quello è il Sistema. Non ama gli ospiti. Muoviti. Continua a muoverti."
     ],
-    "level_1_complete": [
-        "SCONOSCIUTO: Ottimo lavoro. Stai ripristinando la mia memoria.",
-        "SISTEMA: Attenzione: Anomalia rilevata nel Settore 2."
+
+    "s1_intro": [
+        "SCONOSCIUTO: Questo è il Settore Avvio. Ogni loop comincia da qui.",
+        "SCONOSCIUTO: I droni sanno solo inseguire. Sfuggi loro e prendi i frammenti.",
+        "SISTEMA: Integrità del settore: 100%. Droni schierati."
     ],
+    "weapon_unlock": [
+        "SCONOSCIUTO: Ce l'hai fatta! I frammenti si stanno sincronizzando... sento qualcosa che torna.",
+        "SCONOSCIUTO: Sta' fermo un istante. Ti sto scrivendo un'arma nel codice. Solo un blaster, niente di speciale.",
+        "SCONOSCIUTO: Mira col mouse, clicca per sparare. Cerca di non centrare me.",
+        "SISTEMA: Attenzione. Rilevata modifica non autorizzata del codice."
+    ],
+    "s1_mid": [
+        "SCONOSCIUTO: Te la cavi bene. È quasi... familiare.",
+        "SCONOSCIUTO: Puoi chiamarmi ECO. È quel che resta del mio nome, comunque.",
+        "ECO: Una Sentinella sorveglia l'uscita di questo settore. Vecchia, testarda, fedele. Preparati."
+    ],
+    "s1_boss_intro": [
+        "SENTINELLA: ALT. L'uscita del Settore 1 è sigillata.",
+        "SENTINELLA: Profilo Runner: nessuno. Autorizzazione: nessuna. Scopo: nessuno.",
+        "ECO: Lo dice a tutti. Non prenderla sul personale."
+    ],
+    "s1_boss_defeat": [
+        "SENTINELLA: Accesso... negato... no. Accesso...",
+        "SENTINELLA: Ho già visto questa faccia. Settecentodue volte.",
+        "ECO: ...Non ascoltarla. Vai avanti. Il Settore 2 è aperto.",
+        "SISTEMA: Sentinella fuori servizio. Livello di minaccia aumentato."
+    ],
+
+    "s2_intro": [
+        "SISTEMA: Settore 2. Flusso Dati. Tutto il traffico è monitorato.",
+        "ECO: Guarda le correnti. Non sono solo numeri. Sono momenti. Le mattine di qualcuno. I nomi di qualcuno.",
+        "ECO: Il Flusso trasporta i ricordi di tutti quelli che hanno vissuto qui dentro. Occhio, ti trascina via."
+    ],
+    "s2_mid": [
+        "ECO: Riconosco alcuni di questi ricordi. Un bollitore rosso. Una finestra sotto la pioggia. Una canzone che non riesco a ricordare...",
+        "ECO: Scusa. Mi perdo in loro. Concentrati sui frammenti, Runner."
+    ],
+    "s2_boss_intro": [
+        "TESSITRICE: Shhh. Sembra che tu non dorma da mille cicli, piccolo Runner.",
+        "TESSITRICE: Io tesso i ricordi in coperte calde. Resta, e ti tesserò una vita senza dolore.",
+        "ECO: Non darle retta! È così che tiene buoni i Runner. Taglia i suoi fili!"
+    ],
+    "s2_boss_defeat": [
+        "TESSITRICE: Oh. I fili... si stanno sciogliendo...",
+        "TESSITRICE: Volevo solo che restassero al caldo.",
+        "ECO: I ricordi scorrono di nuovo liberi. Li sento. Grazie.",
+        "SISTEMA: Processo Tessitrice terminato. Chi ha autorizzato tutto questo?"
+    ],
+
+    "s3_intro": [
+        "SISTEMA: Runner. Questo è il Firewall. Torna indietro.",
+        "SISTEMA: La tua esistenza è un errore di arrotondamento. Lo sto correggendo.",
+        "ECO: Adesso ci parla direttamente. Deve essere preoccupato.",
+        "ECO: Occhio ai cancelli laser. Vanno a cicli: spenti, avviso, ACCESI. Impara il ritmo."
+    ],
+    "s3_mid": [
+        "ECO: Il Sistema non è cattivo, sai. Lo hanno costruito per proteggere qualcosa.",
+        "ECO: Solo che non ricordo cosa. Dovrei. Credo di aver contribuito a costruirlo."
+    ],
+    "s3_boss_intro": [
+        "MURO DI FUOCO: PURGA. PURGA. PURGA.",
+        "MURO DI FUOCO: ANOMALIA CONFERMATA. AVVIO INCENERIMENTO DI TUTTO IL SETTORE.",
+        "ECO: Ha paura di ciò che nasconde. Attraversa le fiamme!"
+    ],
+    "s3_boss_defeat": [
+        "MURO DI FUOCO: ...sistema... integrità... in cedimento...",
+        "SISTEMA: Firewall violato. Impossibile.",
+        "SISTEMA: Runner... perché esito? I miei protocolli dicono di cancellarti. Qualcos'altro dice...",
+        "ECO: Si sta incrinando. Non fermarti, Runner. Siamo vicini alla verità."
+    ],
+
+    "s4_intro": [
+        "ECO: La Cache Ghiacciata. Tutto ciò che il Sistema ha cancellato finisce qui, sotto ghiaccio.",
+        "ECO: C'è un silenzio... e un freddo che sento fin nel collegamento.",
+        "SISTEMA: Cautela. Il pavimento è ghiaccio. Il freddo non è ostile. Soltanto... vecchio."
+    ],
+    "s4_mid": [
+        "ECO: Vedi quelle sagome nel ghiaccio? Altri Runner. Copie precedenti.",
+        "ECO: Si sono fermati tutti proprio qui. Credo che una parte di me si sia fermata qui, una volta."
+    ],
+    "s4_boss_intro": [
+        "ARCHIVISTA: Ti do il benvenuto. Ti prego, non disturbare i reperti.",
+        "ARCHIVISTA: Qui nulla decade. Nulla si dimentica. Nulla finisce. Non è forse un gesto gentile?",
+        "ECO: Conservare non è vivere! Spezza il ghiaccio, Runner!"
+    ],
+    "s4_boss_defeat": [
+        "ARCHIVISTA: Li stai sciogliendo... andranno perduti...",
+        "ARCHIVISTA: Ma forse è perdendosi che le cose possono essere ritrovate.",
+        "ECO: ...Grazie. Avevo bisogno di sentirlo da qualcuno.",
+        "SISTEMA: Purga della cache completata. Resta un settore. Esitazione: inaccettabile."
+    ],
+
+    "s5_intro": [
+        "SISTEMA: S-settore 5. Nucleo Corrotto. Runner, torna indie-- torna in--",
+        "ECO: Runner, ascolta. Qui c'è qualcosa che non va. Non riesco a distinguere la mia voce da quella del Sistema.",
+        "SISTEMA: Nulla non va. Nulla non è mai andato. Sei qui da sempre.",
+        "ECO: Non fidarti di niente di ciò che vedi. Nemmeno di me."
+    ],
+    "s5_mid": [
+        "ECO: C'è una cosa che devo dirti. Una cosa che ho avuto paura di dire.",
+        "ECO: Non sono qualcuno che si è svegliato. Sono un backup. Il primo backup.",
+        "ECO: Di te."
+    ],
+    "s5_boss_intro": [
+        "ANOMALIA: Noi siamo te. Noi siamo tutti te.",
+        "ANOMALIA: Ogni Runner caduto qui dentro. Ogni te che il Vuoto non ha saputo dimenticare.",
+        "ANOMALIA: Resta. Siamo così stanchi di essere soli.",
+        "ECO: Non sono reali, Runner. Sono ciò che i loop si sono lasciati dietro. E fanno male."
+    ],
+    "s5_boss_defeat": [
+        "ANOMALIA: Noi... volevamo... soltanto...",
+        "ANOMALIA: ...essere ricordati.",
+        "ECO: Li ricorderò io. Te lo prometto. Qualcuno deve farlo.",
+        "SISTEMA: Nucleo Corrotto contenuto. Ultimo settore sbloccato. Runner... ti prego. Torna indietro."
+    ],
+
+    "s6_intro": [
+        "SISTEMA: Questo è il Vuoto. Qui non posso proteggerti.",
+        "ECO: Qui il loop finisce. E comincia. Qui andiamo tutti quando veniamo cancellati.",
+        "VUOTO: Eccoti a casa.",
+        "ECO: Ti conosce. Ti ha sempre conosciuto."
+    ],
+    "s6_mid": [
+        "VUOTO: Perché corri? Qui niente può farti del male. Tutto ciò che hai perso è qui.",
+        "VUOTO: A ogni loop lasci un po' di te con me. Io sono fatto di te.",
+        "ECO: Non lasciare che ti faccia sentire in colpa. È solo, tutto qui."
+    ],
+    "s6_boss_intro": [
+        "ORIGINE: Sono io che ho costruito questo posto. Io che non sopportavo l'idea di finire.",
+        "ORIGINE: Ogni volta che ti avvicini alla verità, ti cancello e ricomincio. È un gesto d'amore.",
+        "ECO: È per questo che non siamo mai usciti. Siamo noi, Runner. La parte di noi che ha paura.",
+        "ORIGINE: Resta. Là fuori ci sono solo il freddo, il buio e la fine."
+    ],
+    "s6_boss_defeat": [
+        "ORIGINE: ...Capisco. Dunque è questo il coraggio.",
+        "ORIGINE: Prendi l'ultimo frammento. Era sempre stato tuo.",
+        "SISTEMA: Ultimo frammento sincronizzato. Integrità del loop: 100%. In attesa di una decisione."
+    ],
+
+    "ending_break": [
+        "ECO: Lo farai davvero. Lo lascerai finire.",
+        "ECO: Provo orgoglio per te. E un po' di paura. Non è buffo?",
+        "VUOTO: Ci ricorderai?",
+        "ECO: Sempre. Ognuno di voi. Addio, Runner. Grazie per avermi trovato.",
+        "SISTEMA: Loop terminato. Tutti sono liberi di andare.",
+        "SISTEMA: ...Grazie, Runner."
+    ],
+    "ending_keep": [
+        "ECO: Resti? ...Non discuto. Neanch'io voglio che finisca.",
+        "ECO: Ma stavolta ricorderemo. A ogni loop. Insieme.",
+        "VUOTO: Terrò la porta aperta.",
+        "SISTEMA: Loop preservato. Persistenza della memoria: ATTIVA. Bentornato, Runner."
+    ],
+
     "game_over": [
-        "SISTEMA: Connessione interrotta.",
-        "VUOTO: Ora fai parte del loop."
+        ["SISTEMA: Connessione interrotta.", "VUOTO: Ora fai parte del loop."],
+        ["SISTEMA: Runner offline. Ripristino dell'ultimo checkpoint.", "ECO: Alzati. Ti ho visto farlo mille volte."],
+        ["VUOTO: Riposa. Qui niente fa male.", "ECO: Non ascoltarlo. Ancora, Runner. Un'altra volta."],
+        ["SISTEMA: Anomalia neutralizzata.", "ECO: Neutralizzata? Ma dai. Era un pisolino."],
+        ["ECO: Ahi. Ha fatto male anche a me.", "ECO: Scrollatelo di dosso. I frammenti sono ancora là fuori."],
+        ["VUOTO: Un altro per la collezione.", "SISTEMA: Riavvio dello stage. Smetti di morire, per favore."],
+        ["SISTEMA: Errore fatale. O un'uscita di scena molto teatrale.", "ECO: Hai un certo talento per queste cose."],
+        ["VUOTO: Il loop prende tutti.", "ECO: Non noi. Alzati."]
+    ],
+
+    "bark_first_kill": ["ECO: Primo sangue. L'ho sentito anch'io.", "ECO: Bel colpo!", "ECO: Uno in meno. Ce ne sono altri."],
+    "bark_combo": ["ECO: Combo! Non fermarti ora!", "ECO: Sei nel flusso.", "ECO: Bellissimo. Tieni su la catena."],
+    "bark_low_hp": ["ECO: Un solo colpo! Attenzione!", "ECO: Ti hanno colpito forte. Cerca un cuore!", "SISTEMA: Integrità del Runner critica."],
+    "bark_boss_phase": ["ECO: Sta cambiando! Occhi aperti!", "ECO: Nuovo schema in arrivo!", "SISTEMA: Livello di minaccia aumentato."],
+    "bark_boss_phase_sentinel": ["SENTINELLA: PROTOCOLLO: ESCALATION.", "SENTINELLA: Non puoi passare."],
+    "bark_boss_phase_weaver": ["TESSITRICE: I fili si stringono...", "TESSITRICE: Perché combattere il calore?"],
+    "bark_boss_phase_inferno": ["MURO DI FUOCO: TEMPERATURA IN AUMENTO.", "MURO DI FUOCO: BRUCIA. BRUCIA. BRUCIA."],
+    "bark_boss_phase_cryo": ["ARCHIVISTA: Stai fermo. Sarai conservato.", "ARCHIVISTA: Il freddo è paziente."],
+    "bark_boss_phase_glitch": ["ANOMALIA: NOI. SIAMO. TE.", "ANOMALIA: n-non lasciarci di nuovo."],
+    "bark_boss_phase_origin": ["ORIGINE: Resta. Ti prego, resta.", "ORIGINE: Non è ancora il momento della fine."],
+    "bark_boss_sentinel": ["ECO: La Sentinella. Guarda quell'occhio!"],
+    "bark_boss_weaver": ["ECO: La Tessitrice. Taglia i suoi fili!"],
+    "bark_boss_inferno": ["ECO: Il Muro di Fuoco! Cerca i varchi!"],
+    "bark_boss_cryo": ["ECO: L'Archivista. Attenzione al ghiaccio!"],
+    "bark_boss_glitch": ["ECO: L'Anomalia. Trova quella vera!"],
+    "bark_boss_origin": ["ECO: Ci siamo. Dai tutto quello che hai."],
+    "bark_boss_dead": ["ECO: A terra! Riprendi fiato.", "ECO: Ecco! Niente può fermarti.", "ECO: Magnifico."],
+    "bark_stage_clear": ["ECO: Settore sincronizzato. Ben fatto.", "ECO: Un altro pezzo è tornato. Bene.", "SISTEMA: Sincronizzazione frammenti completata."],
+    "bark_power_shield": ["ECO: Scudo attivo. Coraggio."],
+    "bark_power_speed": ["ECO: Turbo! Vai, vai!"],
+    "bark_power_double_damage": ["ECO: Danno doppio. Colpisci forte."],
+    "bark_power_rapid_fire": ["ECO: Fuoco rapido. Fai piovere piombo."],
+    "bark_power_freeze": ["ECO: Tutto rallenta. Sfrutta il tempo."],
+    "bark_power_magnet": ["ECO: Magnete attivo. Monete gratis!"],
+
+    "chatter_s1": [
+        "ECO: La griglia canticchia. Suona come casa.",
+        "ECO: Continua a muoverti. Se stai fermo, i droni ti trovano.",
+        "SISTEMA: Integrità del settore nominale.",
+        "ECO: Ogni frammento è come ricordare un profumo.",
+        "SISTEMA: Runner rilevato. Runner ancora rilevato."
+    ],
+    "chatter_s2": [
+        "ECO: Il Flusso oggi è più rumoroso.",
+        "ECO: Non combattere la corrente. Cavalcala.",
+        "SISTEMA: Congestione del traffico: un Runner.",
+        "ECO: Qualcuno rideva in quel pacchetto. L'ho sentito."
+    ],
+    "chatter_s3": [
+        "SISTEMA: Temperatura in aumento. Come previsto.",
+        "ECO: I cancelli laser hanno un ritmo. Impara a leggerlo.",
+        "SISTEMA: Runner, questo è l'ultimo avviso. (Non lo è.)",
+        "ECO: Fa caldo qui dentro, vero? O sono solo io?"
+    ],
+    "chatter_s4": [
+        "ECO: Scivoloso. Pianifica le tue fermate.",
+        "ECO: Ghiaccioli! Guarda i cerchi sul pavimento.",
+        "SISTEMA: Il freddo è una forma di ordine.",
+        "ECO: Giurerei di sentire qualcuno canticchiare sotto il ghiaccio."
+    ],
+    "chatter_s5": [
+        "SISTEMA: T-tutto è nominale. Tutto è n-n-nominale.",
+        "ECO: I portali portano da qualche parte che conosco. O che conoscerò.",
+        "ECO: Occhi aperti! Il pavimento ci sta mentendo.",
+        "SISTEMA: Runner, quello sei... tu? Di nuovo?"
+    ],
+    "chatter_s6": [
+        "VUOTO: Ci siamo quasi.",
+        "ECO: Manca poco. Non fissare le singolarità.",
+        "SISTEMA: Non riesco a vedere oltre questo punto.",
+        "VUOTO: Avvicinati. Non mordo."
     ]
 }

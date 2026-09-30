@@ -187,9 +187,10 @@ class ConfirmScene(Scene):
         surf.blit(gfx.tint_overlay((0, 0, 8), 150), (0, 0))
         gfx.panel(surf, (W // 2 - 400, 200, 800, 320), gfx.RED, fill=(10, 4, 8, 235), border=2, cut=16)
         y = 240
-        for ln in gfx.wrap_text(self.message, "mono", 24, 700):
-            gfx.draw_text(surf, ln, (W // 2, y), "mono", 24, gfx.WHITE, "center")
-            y += 34
+        for para in self.message.split("\n"):
+            for ln in gfx.wrap_text(para, "mono", 24, 700) if para else [""]:
+                gfx.draw_text(surf, ln, (W // 2, y), "mono", 24, gfx.WHITE, "center")
+                y += 34
         self.menu.draw(surf)
 
 

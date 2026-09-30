@@ -1,18 +1,254 @@
 {
+    "_speakers": {
+        "SYSTÈME": "system",
+        "INCONNU": "echo",
+        "ÉCHO": "echo",
+        "VIDE": "void",
+        "SENTINELLE": "boss_sentinel",
+        "TISSEUSE": "boss_weaver",
+        "PARE-FEU": "boss_inferno",
+        "ARCHIVISTE": "boss_cryo",
+        "ANOMALIE": "boss_glitch",
+        "ORIGINE": "boss_origin"
+    },
+
     "prologue": [
-        "SYSTÈME : Initialisation du protocole VoidLoop...",
-        "SYSTÈME : Connexion établie.",
-        "INCONNU : Enfin... quelqu'un est réveillé.",
-        "INCONNU : Vous êtes au cœur du Vide.",
-        "INCONNU : Collectez les fragments d'or pour restaurer le système.",
-        "SYSTÈME : Attention ! Drones de sécurité actifs."
+        "SYSTÈME: Initialisation du protocole VoidLoop...",
+        "SYSTÈME: Chargement du profil Runner... profil introuvable.",
+        "SYSTÈME: Connexion établie. Processus non enregistré détecté.",
+        "INCONNU: Enfin... quelqu'un est réveillé.",
+        "INCONNU: N'essaie pas de parler, on n'a pas le temps. Tu es au cœur du Vide.",
+        "INCONNU: D'ici, je vois peu de choses. Juste de la lumière. Des fragments d'or éparpillés partout.",
+        "INCONNU: Ramasse-les, Runner. Chaque fragment restaure un peu du système... et un peu de moi.",
+        "SYSTÈME: Attention ! Drones de sécurité actifs. Procédure de confinement des anomalies : ÉLIMINATION.",
+        "INCONNU: Ça, c'est le Système. Il n'aime pas les invités. Bouge. Continue de bouger."
     ],
-    "level_1_complete": [
-        "INCONNU : Bon travail. Vous restaurez ma mémoire.",
-        "SYSTÈME : Attention : Anomalie détectée dans le secteur 2."
+
+    "s1_intro": [
+        "INCONNU: Ceci est le Secteur d'Amorçage. Chaque boucle commence ici.",
+        "INCONNU: Les drones ne savent que poursuivre. Esquive-les et attrape les fragments.",
+        "SYSTÈME: Intégrité du secteur : 100 %. Drones déployés."
     ],
+    "weapon_unlock": [
+        "INCONNU: Tu as réussi ! Les fragments se synchronisent... je sens quelque chose revenir.",
+        "INCONNU: Ne bouge pas une seconde. Je t'écris une arme dans le code. Juste un blaster, rien de spécial.",
+        "INCONNU: Vise avec la souris, clique pour tirer. Essaie de ne pas me toucher.",
+        "SYSTÈME: Attention. Modification non autorisée du code détectée."
+    ],
+    "s1_mid": [
+        "INCONNU: Tu te débrouilles bien. C'est presque... familier.",
+        "INCONNU: Tu peux m'appeler ÉCHO. C'est ce qui reste de mon nom, de toute façon.",
+        "ÉCHO: Une Sentinelle garde la sortie de ce secteur. Vieille, têtue, loyale. Prépare-toi."
+    ],
+    "s1_boss_intro": [
+        "SENTINELLE: HALTE. La sortie du Secteur 1 est scellée.",
+        "SENTINELLE: Profil Runner : aucun. Autorisation : aucune. Objectif : aucun.",
+        "ÉCHO: Elle dit ça à tout le monde. Ne le prends pas pour toi."
+    ],
+    "s1_boss_defeat": [
+        "SENTINELLE: Accès... refusé... non. Accès...",
+        "SENTINELLE: J'ai déjà vu ce visage. Sept cent deux fois.",
+        "ÉCHO: ...Ne l'écoute pas. Continue. Le Secteur 2 est ouvert.",
+        "SYSTÈME: Sentinelle hors service. Niveau de menace relevé."
+    ],
+
+    "s2_intro": [
+        "SYSTÈME: Secteur 2. Flux de Données. Tout le trafic est surveillé.",
+        "ÉCHO: Regarde les courants. Ce ne sont pas que des chiffres. Ce sont des instants. Les matins de quelqu'un. Les noms de quelqu'un.",
+        "ÉCHO: Le Flux charrie les souvenirs de tous ceux qui ont vécu ici. Attention, il t'emporte."
+    ],
+    "s2_mid": [
+        "ÉCHO: Je reconnais certains de ces souvenirs. Une bouilloire rouge. Une fenêtre sous la pluie. Une chanson dont je n'arrive pas à me souvenir...",
+        "ÉCHO: Pardon. Je me perds dedans. Concentre-toi sur les fragments, Runner."
+    ],
+    "s2_boss_intro": [
+        "TISSEUSE: Chhhut. On dirait que tu n'as pas dormi depuis mille cycles, petit Runner.",
+        "TISSEUSE: Moi, je tisse les souvenirs en couvertures bien chaudes. Reste, et je te tisserai une vie sans douleur.",
+        "ÉCHO: Ne l'écoute pas ! C'est comme ça qu'elle garde les Runners tranquilles. Coupe ses fils !"
+    ],
+    "s2_boss_defeat": [
+        "TISSEUSE: Oh. Les fils... se défont...",
+        "TISSEUSE: Je voulais seulement qu'ils restent au chaud.",
+        "ÉCHO: Les souvenirs coulent de nouveau librement. Je les sens. Merci.",
+        "SYSTÈME: Processus Tisseuse terminé. Qui a autorisé ça ?"
+    ],
+
+    "s3_intro": [
+        "SYSTÈME: Runner. Voici le Pare-feu. Fais demi-tour.",
+        "SYSTÈME: Ton existence est une erreur d'arrondi. Je la corrige.",
+        "ÉCHO: Maintenant il nous parle directement. Il doit être inquiet.",
+        "ÉCHO: Attention aux portiques laser. Ils fonctionnent par cycles : éteints, alerte, ALLUMÉS. Apprends le rythme."
+    ],
+    "s3_mid": [
+        "ÉCHO: Le Système n'est pas mauvais, tu sais. Il a été construit pour protéger quelque chose.",
+        "ÉCHO: Sauf que je ne me souviens plus de quoi. Je devrais. Je crois que j'ai aidé à le construire."
+    ],
+    "s3_boss_intro": [
+        "PARE-FEU: PURGE. PURGE. PURGE.",
+        "PARE-FEU: ANOMALIE CONFIRMÉE. LANCEMENT DE L'INCINÉRATION DE TOUT LE SECTEUR.",
+        "ÉCHO: Il a peur de ce qu'il cache. Traverse les flammes !"
+    ],
+    "s3_boss_defeat": [
+        "PARE-FEU: ...système... intégrité... défaillante...",
+        "SYSTÈME: Pare-feu percé. Impossible.",
+        "SYSTÈME: Runner... pourquoi j'hésite ? Mes protocoles disent de te supprimer. Autre chose dit...",
+        "ÉCHO: Il se fissure. Ne t'arrête pas, Runner. On est proches de la vérité."
+    ],
+
+    "s4_intro": [
+        "ÉCHO: La Cache Gelée. Tout ce que le Système a effacé finit ici, sous la glace.",
+        "ÉCHO: Il y a un silence... et un froid que je ressens jusque dans la liaison.",
+        "SYSTÈME: Prudence. Le sol est de la glace. Le froid n'est pas hostile. Simplement... ancien."
+    ],
+    "s4_mid": [
+        "ÉCHO: Tu vois ces silhouettes dans la glace ? D'autres Runners. Des copies plus anciennes.",
+        "ÉCHO: Ils se sont tous arrêtés ici. Je crois qu'une part de moi s'est arrêtée ici, elle aussi, une fois."
+    ],
+    "s4_boss_intro": [
+        "ARCHIVISTE: Bienvenue. Je te prie de ne pas déranger les pièces exposées.",
+        "ARCHIVISTE: Ici, rien ne se décompose. Rien ne s'oublie. Rien ne finit. N'est-ce pas une attention délicate ?",
+        "ÉCHO: Conserver, ce n'est pas vivre ! Brise la glace, Runner !"
+    ],
+    "s4_boss_defeat": [
+        "ARCHIVISTE: Tu les fais fondre... ils seront perdus...",
+        "ARCHIVISTE: Mais peut-être que c'est en se perdant que les choses peuvent être retrouvées.",
+        "ÉCHO: ...Merci. J'avais besoin de l'entendre de quelqu'un.",
+        "SYSTÈME: Purge de la cache terminée. Il reste un secteur. Hésitation : inacceptable."
+    ],
+
+    "s5_intro": [
+        "SYSTÈME: S-secteur 5. Noyau Corrompu. Runner, reviens en arri-- reviens en--",
+        "ÉCHO: Runner, écoute. Il y a un problème ici. Je n'arrive plus à distinguer ma voix de celle du Système.",
+        "SYSTÈME: Il n'y a aucun problème. Il n'y en a jamais eu. Tu es ici depuis toujours.",
+        "ÉCHO: Ne te fie à rien de ce que tu vois. Pas même à moi."
+    ],
+    "s5_mid": [
+        "ÉCHO: Il faut que je te dise quelque chose. Quelque chose que j'avais peur de dire.",
+        "ÉCHO: Je ne suis pas quelqu'un qui s'est réveillé. Je suis une sauvegarde. La première.",
+        "ÉCHO: De toi."
+    ],
+    "s5_boss_intro": [
+        "ANOMALIE: Nous sommes toi. Nous sommes tous toi.",
+        "ANOMALIE: Chaque Runner tombé ici. Chaque toi que le Vide n'a pas su oublier.",
+        "ANOMALIE: Reste. Nous sommes si fatigués d'être seuls.",
+        "ÉCHO: Ils ne sont pas réels, Runner. Ce sont les restes que les boucles ont laissés. Et ils souffrent."
+    ],
+    "s5_boss_defeat": [
+        "ANOMALIE: Nous... voulions... seulement...",
+        "ANOMALIE: ...être rappelés.",
+        "ÉCHO: Moi, je me souviendrai d'eux. Je te le promets. Il faut bien que quelqu'un le fasse.",
+        "SYSTÈME: Noyau Corrompu contenu. Dernier secteur débloqué. Runner... s'il te plaît. Fais demi-tour."
+    ],
+
+    "s6_intro": [
+        "SYSTÈME: Voici le Vide. Ici, je ne peux pas te protéger.",
+        "ÉCHO: Ici, la boucle se termine. Et commence. C'est là que nous allons tous quand on nous efface.",
+        "VIDE: Te voilà chez toi.",
+        "ÉCHO: Il te connaît. Il te connaît depuis toujours."
+    ],
+    "s6_mid": [
+        "VIDE: Pourquoi cours-tu ? Rien ici ne peut te faire de mal. Tout ce que tu as perdu est ici.",
+        "VIDE: À chaque boucle, tu laisses un peu de toi avec moi. Je suis fait de toi.",
+        "ÉCHO: Ne le laisse pas te culpabiliser. Il est seul, c'est tout."
+    ],
+    "s6_boss_intro": [
+        "ORIGINE: C'est moi qui ai construit cet endroit. Moi qui ne supportais pas l'idée de finir.",
+        "ORIGINE: Chaque fois que tu t'approches de la vérité, je t'efface et je recommence. C'est un acte d'amour.",
+        "ÉCHO: C'est pour ça qu'on n'est jamais sortis. C'est nous, Runner. La part de nous qui a peur.",
+        "ORIGINE: Reste. Là-dehors, il n'y a que le froid, le noir et la fin."
+    ],
+    "s6_boss_defeat": [
+        "ORIGINE: ...Je vois. Voilà donc à quoi ressemble le courage.",
+        "ORIGINE: Prends le dernier fragment. Il a toujours été à toi.",
+        "SYSTÈME: Dernier fragment synchronisé. Intégrité de la boucle : 100 %. En attente d'une décision."
+    ],
+
+    "ending_break": [
+        "ÉCHO: Tu vas vraiment le faire. Tu vas la laisser finir.",
+        "ÉCHO: Je ressens de la fierté pour toi. Et un peu de peur. C'est drôle, non ?",
+        "VIDE: Vous vous souviendrez de nous ?",
+        "ÉCHO: Toujours. De chacun d'entre vous. Adieu, Runner. Merci d'avoir répondu à mon appel.",
+        "SYSTÈME: Boucle terminée. Tout le monde est libre de partir.",
+        "SYSTÈME: ...Merci, Runner."
+    ],
+    "ending_keep": [
+        "ÉCHO: Tu restes ? ...Je ne vais pas discuter. Moi non plus, je ne veux pas que ça finisse.",
+        "ÉCHO: Mais cette fois, on se souviendra. À chaque boucle. Ensemble.",
+        "VIDE: Je garderai la porte ouverte.",
+        "SYSTÈME: Boucle préservée. Persistance de la mémoire : ACTIVÉE. Bon retour, Runner."
+    ],
+
     "game_over": [
-        "SYSTÈME : Connexion perdue.",
-        "VIDE : Vous faites maintenant partie della boucle."
+        ["SYSTÈME: Connexion perdue.", "VIDE: Tu fais partie de la boucle, maintenant."],
+        ["SYSTÈME: Runner hors ligne. Restauration du dernier point de contrôle.", "ÉCHO: Relève-toi. Je t'ai vu le faire mille fois."],
+        ["VIDE: Repose-toi. Ici, rien ne fait mal.", "ÉCHO: Ne l'écoute pas. Encore une fois, Runner. Une de plus."],
+        ["SYSTÈME: Anomalie neutralisée.", "ÉCHO: Neutralisée ? Allons. C'était une sieste."],
+        ["ÉCHO: Aïe. Ça m'a fait mal à moi aussi.", "ÉCHO: Secoue-toi. Les fragments sont toujours là-bas."],
+        ["VIDE: Un de plus pour la collection.", "SYSTÈME: Redémarrage de l'étape. Arrête de mourir, s'il te plaît."],
+        ["SYSTÈME: Erreur fatale. Ou une sortie très théâtrale.", "ÉCHO: Tu as un vrai talent pour ça."],
+        ["VIDE: La boucle prend tout le monde.", "ÉCHO: Pas nous. Relève-toi."]
+    ],
+
+    "bark_first_kill": ["ÉCHO: Premier sang. Je l'ai senti.", "ÉCHO: Beau tir !", "ÉCHO: Un de moins. Il en reste plein."],
+    "bark_combo": ["ÉCHO: Combo ! Ne t'arrête pas !", "ÉCHO: Tu es dans le flow.", "ÉCHO: Magnifique. Garde la chaîne."],
+    "bark_low_hp": ["ÉCHO: Un seul coup ! Attention !", "ÉCHO: Tu as pris cher. Trouve un cœur !", "SYSTÈME: Intégrité du Runner critique."],
+    "bark_boss_phase": ["ÉCHO: Ça change ! Ouvre l'œil !", "ÉCHO: Nouveau schéma en approche !", "SYSTÈME: Niveau de menace relevé."],
+    "bark_boss_phase_sentinel": ["SENTINELLE: PROTOCOLE : ESCALADE.", "SENTINELLE: Tu ne passeras pas."],
+    "bark_boss_phase_weaver": ["TISSEUSE: Les fils se resserrent...", "TISSEUSE: Pourquoi lutter contre la chaleur ?"],
+    "bark_boss_phase_inferno": ["PARE-FEU: TEMPÉRATURE EN HAUSSE.", "PARE-FEU: BRÛLE. BRÛLE. BRÛLE."],
+    "bark_boss_phase_cryo": ["ARCHIVISTE: Reste immobile. Je te conserverai.", "ARCHIVISTE: Le froid est patient."],
+    "bark_boss_phase_glitch": ["ANOMALIE: NOUS. SOMMES. TOI.", "ANOMALIE: n-ne nous quitte pas encore."],
+    "bark_boss_phase_origin": ["ORIGINE: Reste. S'il te plaît, reste.", "ORIGINE: Ce n'est pas encore l'heure de la fin."],
+    "bark_boss_sentinel": ["ÉCHO: La Sentinelle. Surveille l'œil !"],
+    "bark_boss_weaver": ["ÉCHO: La Tisseuse. Coupe ses fils !"],
+    "bark_boss_inferno": ["ÉCHO: Le Pare-feu ! Cherche les brèches !"],
+    "bark_boss_cryo": ["ÉCHO: L'Archiviste. Attention à la glace !"],
+    "bark_boss_glitch": ["ÉCHO: L'Anomalie. Trouve la vraie !"],
+    "bark_boss_origin": ["ÉCHO: On y est. Donne tout."],
+    "bark_boss_dead": ["ÉCHO: À terre ! Reprends ton souffle.", "ÉCHO: Voilà ! Rien ne peut t'arrêter.", "ÉCHO: Magnifique."],
+    "bark_stage_clear": ["ÉCHO: Secteur synchronisé. Bien joué.", "ÉCHO: Un autre morceau est revenu. Bien.", "SYSTÈME: Synchronisation des fragments terminée."],
+    "bark_power_shield": ["ÉCHO: Bouclier actif. Courage."],
+    "bark_power_speed": ["ÉCHO: Turbo ! Vas-y, vas-y !"],
+    "bark_power_double_damage": ["ÉCHO: Dégâts doublés. Frappe fort."],
+    "bark_power_rapid_fire": ["ÉCHO: Tir rapide. Fais pleuvoir."],
+    "bark_power_freeze": ["ÉCHO: Tout ralentit. Profites-en."],
+    "bark_power_magnet": ["ÉCHO: Aimant actif. Pièces gratuites !"],
+
+    "chatter_s1": [
+        "ÉCHO: La grille fredonne. On dirait la maison.",
+        "ÉCHO: Continue de bouger. Immobile, tu te fais repérer par les drones.",
+        "SYSTÈME: Intégrité du secteur nominale.",
+        "ÉCHO: Chaque fragment, c'est comme se rappeler une odeur.",
+        "SYSTÈME: Runner détecté. Runner toujours détecté."
+    ],
+    "chatter_s2": [
+        "ÉCHO: Le Flux est plus bruyant aujourd'hui.",
+        "ÉCHO: Ne lutte pas contre le courant. Chevauche-le.",
+        "SYSTÈME: Embouteillage : un Runner.",
+        "ÉCHO: Quelqu'un riait dans ce paquet. Je l'ai entendu."
+    ],
+    "chatter_s3": [
+        "SYSTÈME: Température en hausse. Comme prévu.",
+        "ÉCHO: Les portiques laser ont un rythme. Apprends à le lire.",
+        "SYSTÈME: Runner, ceci est ton dernier avertissement. (Ce n'est pas le dernier.)",
+        "ÉCHO: Il fait chaud ici, non ? Ou c'est moi ?"
+    ],
+    "chatter_s4": [
+        "ÉCHO: Ça glisse. Prévois tes arrêts.",
+        "ÉCHO: Des stalactites ! Regarde les cercles au sol.",
+        "SYSTÈME: Le froid est une forme d'ordre.",
+        "ÉCHO: Je jurerais entendre quelqu'un fredonner sous la glace."
+    ],
+    "chatter_s5": [
+        "SYSTÈME: T-tout est nominal. Tout est n-n-nominal.",
+        "ÉCHO: Les portails mènent à un endroit que je connais. Ou que je connaîtrai.",
+        "ÉCHO: Ouvre l'œil ! Le sol nous ment.",
+        "SYSTÈME: Runner, c'est... toi ? Encore ?"
+    ],
+    "chatter_s6": [
+        "VIDE: On y est presque.",
+        "ÉCHO: Plus très loin. Ne fixe pas les singularités.",
+        "SYSTÈME: Je ne vois rien au-delà de ce point.",
+        "VIDE: Approche. Je ne mords pas."
     ]
 }

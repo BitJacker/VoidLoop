@@ -717,12 +717,12 @@ class World:
             for p in players:
                 rr = e.r + p.r - 2
                 dx, dy = p.pos.x - e.pos.x, p.pos.y - e.pos.y
-                if dx * dx + dy * dy < rr * rr and p.vulnerable():
-                    if "SHIELD" in self.powers:
+                if dx * dx + dy * dy < rr * rr:
+                    if "SHIELD" in self.powers:              # the shield rams enemies to pieces
                         self.fx.ring(p.pos.x, p.pos.y, gfx.CYAN, 14, 50, 14, 3)
                         self.kill_enemy(e)
                         break
-                    if self.hurt_player(p, 1, e.pos, "contact"):
+                    if p.vulnerable() and self.hurt_player(p, 1, e.pos, "contact"):
                         e.knock += (e.pos - p.pos).normalize() * 8 if (e.pos - p.pos).length_squared() > 0 else Vector2()
                         if e.kind == "comet":
                             self.kill_enemy(e, by_player=False)
