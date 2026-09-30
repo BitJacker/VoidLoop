@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- WiX v5 source of the VoidLoop installer.
+     wix build -arch x64 -ext WixToolset.UI.wixext -d Version=4.0.0 -d AppDir=dist\VoidLoop -d IconPath=packaging\windows\voidloop.ico
+              -d LicensePath=packaging\windows\license.rtf -o out\VoidLoop.msi packaging\windows\VoidLoop.wxs -->
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
+  <Package Name="VoidLoop" Manufacturer="BitJacker" Version="$(Version)" UpgradeCode="f761b47e-6f51-4194-9c1f-659518a5ea88"
+           Scope="perMachine" Language="1033" Compressed="yes">
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of VoidLoop is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+
+    <Icon Id="AppIcon.ico" SourceFile="$(IconPath)" />
+    <Property Id="ARPPRODUCTICON" Value="AppIcon.ico" />
+    <Property Id="ARPHELPLINK" Value="https://github.com/BitJacker/VoidLoop" />
+    <WixVariable Id="WixUILicenseRtf" Value="$(LicensePath)" />
+    <ui:WixUI Id="WixUI_InstallDir" InstallDirectory="INSTALLFOLDER" />
+
+    <StandardDirectory Id="ProgramFiles64Folder">
+      <Directory Id="INSTALLFOLDER" Name="VoidLoop">
+        <!-- every file of the PyInstaller folder except the launcher, which carries the shortcuts -->
+        <Files Include="$(AppDir)\**">
+          <Exclude Files="$(AppDir)\VoidLoop.exe" />
+        </Files>
+        <Component Id="MainExecutable" Guid="*">
+          <File Id="VoidLoopExe" Source="$(AppDir)\VoidLoop.exe" KeyPath="yes">
+            <Shortcut Id="StartMenuShortcut" Directory="AppMenuFolder" Name="VoidLoop" WorkingDirectory="INSTALLFOLDER"
+                      Description="Neon cyber-survival arcade shooter" Advertise="no" />
+            <Shortcut Id="DesktopShortcut" Directory="DesktopFolder" Name="VoidLoop" WorkingDirectory="INSTALLFOLDER"
+                      Description="Neon cyber-survival arcade shooter" Advertise="no" />
+          </File>
+          <RemoveFolder Id="RemoveAppMenuFolder" Directory="AppMenuFolder" On="uninstall" />
+        </Component>
+      </Directory>
+    </StandardDirectory>
+
+    <StandardDirectory Id="ProgramMenuFolder">
+      <Directory Id="AppMenuFolder" Name="VoidLoop" />
+    </StandardDirectory>
+    <StandardDirectory Id="DesktopFolder" />
+  </Package>
+</Wix>

@@ -12,7 +12,7 @@ import pygame  # noqa: E402
 from . import __version__, gfx  # noqa: E402
 from .audio import Audio  # noqa: E402
 from .i18n import i18n, T  # noqa: E402
-from .paths import user_data_dir  # noqa: E402
+from .paths import asset_path, user_data_dir  # noqa: E402
 from .save import SaveData  # noqa: E402
 from .settings import Settings, W, H, FPS, LANG_CODES  # noqa: E402
 
@@ -67,6 +67,7 @@ class App:
         self._last = time.perf_counter()
         self._black = pygame.Surface((W, H)).convert()
         self._black.fill((0, 0, 0))
+        self.auto_screenshot = None       # (path, frames) - used by the packaging smoke tests
 
     # ---- window ---------------------------------------------------------------------
     def _create_window(self):
@@ -79,8 +80,11 @@ class App:
             screen = pygame.display.set_mode((W, H))
         pygame.display.set_caption("VOID LOOP")
         try:
+            icon = pygame.transform.smoothscale(pygame.image.load(str(asset_path("icons", "voidloop.png"))), (64, 64))
+        except (pygame.error, FileNotFoundError, OSError):
             icon = pygame.Surface((64, 64), pygame.SRCALPHA)
             gfx.draw_logo(icon, 32, 32, 28, 0.0)
+        try:
             pygame.display.set_icon(icon)
         except pygame.error:
             pass
@@ -151,6 +155,8 @@ class App:
 
     def update(self):
         self.frame_no += 1
+        if self.auto_screenshot and self.frame_no >= self.auto_screenshot[1]:
+            self._save_and_quit(self.auto_screenshot[0])
         if self._fade_dir == 1:
             self._fade = min(1.0, self._fade + 0.11)
             if self._fade >= 1.0:
@@ -230,6 +236,15 @@ class App:
         self.save.save()
         pygame.quit()
 
+    def _save_and_quit(self, path):
+        self.auto_screenshot = None
+        try:
+            self.draw()
+            pygame.image.save(self.screen, path)
+        except (OSError, pygame.error):
+            pass
+        self.running = False
+
     def screenshot(self):
         folder = user_data_dir() / "screenshots"
         try:
@@ -252,6 +267,7 @@ def parse_args(argv=None):
     p.add_argument("--no-audio", action="store_true", help="disable all sound")
     p.add_argument("--selftest", action="store_true", help="headless self-check used by the build pipeline")
     p.add_argument("--report", metavar="FILE", help="write the self-test report to FILE")
+    p.add_argument("--screenshot", metavar="FILE", help="open the real window, save a screenshot of the main menu to FILE and exit")
     args, _unknown = p.parse_known_args(argv)                 # tolerate the old positional launcher arguments
     return args
 
@@ -287,6 +303,8 @@ def main(argv=None):
     app = None
     try:
         app = App(lang=args.lang, fullscreen=True if args.fullscreen else False if args.windowed else None, no_audio=args.no_audio)
+        if args.screenshot:
+            app.auto_screenshot = (args.screenshot, 260)
         from .scenes.title import BootScene
         app.go(BootScene(app), fade=False)
         app.run()

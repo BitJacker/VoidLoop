@@ -56,7 +56,7 @@ class PlayScene(Scene):
     # ---- lifecycle -------------------------------------------------------------------------
     def enter(self):
         self.play_music()
-        pygame.mouse.set_visible(True)
+        pygame.mouse.set_visible(False)
 
     def leave(self):
         pygame.mouse.set_visible(True)
@@ -135,6 +135,7 @@ class PlayScene(Scene):
 
     def set_pause(self, on):
         self.paused = on
+        pygame.mouse.set_visible(on)
         self.app.audio.play("ui_select" if on else "ui_back")
         if on:
             items = [Item("resume", lambda: T("pause.continue"), color=gfx.GREEN)]
@@ -290,6 +291,8 @@ class PlayScene(Scene):
         world = self.world
         world.draw(surf, shake=self.app.settings.shake)
         self.draw_hud(surf)
+        if not self.paused and world.state == "playing":
+            self.draw_crosshair(surf)
         if self.paused:
             surf.blit(gfx.tint_overlay((0, 0, 8), 190), (0, 0))
             gfx.glow_text(surf, T("pause.title"), (W // 2, 200), "title", 52, gfx.GREEN, "center", 0.7)
@@ -385,6 +388,19 @@ class PlayScene(Scene):
             bar_h = 84
             pygame.draw.rect(surf, (60, 0, 0) if k else (30, 0, 0), (0, H // 2 - bar_h // 2, W, bar_h))
             gfx.draw_text(surf, T("hud.warning"), (W // 2, H // 2), "title", 56, gfx.RED if k else gfx.scale_color(gfx.RED, 0.6), "center")
+
+    def draw_crosshair(self, surf):
+        mx, my = pygame.mouse.get_pos()
+        col = self.world.players[0].color
+        t = self.t
+        r = 13 + 2 * math.sin(t * 0.15)
+        pygame.draw.circle(surf, gfx.scale_color(col, 0.35), (mx, my), int(r) + 2, 3)
+        pygame.draw.circle(surf, col, (mx, my), int(r), 1)
+        for a in range(4):
+            ang = a * math.pi / 2 + math.pi / 4
+            pygame.draw.line(surf, col, (mx + math.cos(ang) * (r + 3), my + math.sin(ang) * (r + 3)),
+                             (mx + math.cos(ang) * (r + 10), my + math.sin(ang) * (r + 10)), 2)
+        pygame.draw.circle(surf, gfx.WHITE, (mx, my), 2)
 
     def draw_boss_bar(self, surf, boss):
         w = 700

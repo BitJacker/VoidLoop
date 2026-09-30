@@ -145,6 +145,7 @@ class MainMenu(Scene):
         surf.blit(gfx.tint_overlay((0, 2, 10), 175), (0, 0))
         draw_title_logo(surf, self.t)
         gfx.draw_text(surf, T("menu.tagline"), (W // 2, 240), "mono", 22, gfx.scale_color(gfx.CYAN, 0.9), "center")
+        gfx.panel(surf, (W // 2 - 250, 274, 500, len(self.menu.items) * 51 + 26), (30, 60, 70), fill=(2, 4, 10, 165), border=1, cut=16, halo=False)
         self.menu.draw(surf)
         save = self.app.save
         if save.has_story() and self.menu.items[0].key == "continue":
@@ -418,8 +419,8 @@ class AchievementsScene(Scene):
             rect = pygame.Rect(x, y, 570, 40)
             gfx.panel(surf, rect, gfx.scale_color(c, 0.7), fill=(*gfx.scale_color(c, 0.12), 210), border=1, cut=8, halo=False)
             gfx.draw_icon(surf, icon if got else "lock", x + 26, y + 20, 10, c)
-            gfx.draw_text(surf, T("ach.%s.name" % aid), (x + 54, y + 4), "display", 15, gfx.WHITE if got else (130, 140, 160))
-            gfx.draw_text(surf, T("ach.%s.desc" % aid), (x + 54, y + 22), "mono", 14, (190, 200, 215) if got else (95, 105, 125))
+            gfx.draw_text(surf, T("ach.%s.name" % aid), (x + 54, y + 4), "display", 15, gfx.WHITE if got else (150, 160, 182))
+            gfx.draw_text(surf, T("ach.%s.desc" % aid), (x + 54, y + 22), "mono", 14, (190, 200, 215) if got else (128, 140, 162))
         st = save.stats
         hours, mins = int(st["playtime"] // 3600), int(st["playtime"] % 3600 // 60)
         txt = T("ach.stats", kills=int(st["kills"]), deaths=int(st["deaths"]), time="%dh %02dm" % (hours, mins), bosses=int(st["bosses"]),

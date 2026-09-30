@@ -212,7 +212,7 @@ class Player:
             if self.trail:
                 self.trail.pop(0)
             target = move * speed if moving else Vector2()
-            accel = 0.05 if world.ice else 0.55
+            accel = 0.10 if world.ice else 0.55
             self.vel += (target - self.vel) * accel
 
         self.thrust = min(1.0, self.vel.length() / (BASE_SPEED * 1.4))

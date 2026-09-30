@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Name=VoidLoop
+GenericName=Arcade shooter
+GenericName[it]=Sparatutto arcade
+Comment=Neon cyber-survival arcade shooter
+Comment[it]=Sparatutto arcade di cyber-sopravvivenza in stile neon
+Exec=voidloop
+Icon=voidloop
+Terminal=false
+Categories=Game;ArcadeGame;
+Keywords=arcade;shooter;neon;cyberpunk;
+StartupWMClass=VoidLoop
