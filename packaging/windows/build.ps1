@@ -23,9 +23,53 @@ if (-not (Get-Command wix -ErrorAction SilentlyContinue)) {
     dotnet tool install --global wix --version 5.0.2
     $env:PATH += ";$env:USERPROFILE\.dotnet\tools"
 }
+
+# Harvest the PyInstaller folder into a WiX fragment (every file except the launcher, which carries the shortcuts).
+$appDir = (Resolve-Path dist\VoidLoop).Path
+New-Item -ItemType Directory -Force build | Out-Null
+$frag = "build\AppFiles.wxs"
+$script:n = 0
+$script:refs = New-Object System.Collections.Generic.List[string]
+function Esc($t) { [System.Security.SecurityElement]::Escape($t) }
+function Emit-Dir($path, $indent) {
+    $sb = New-Object System.Text.StringBuilder
+    foreach ($f in Get-ChildItem -LiteralPath $path -File) {
+        if ($path -eq $appDir -and $f.Name -eq "VoidLoop.exe") { continue }
+        $script:n++
+        $id = "C$($script:n)"
+        [void]$sb.AppendLine("$indent<Component Id=`"$id`" Guid=`"*`"><File Id=`"F$($script:n)`" Source=`"$(Esc $f.FullName)`" KeyPath=`"yes`" /></Component>")
+        $script:refs.Add($id)
+    }
+    foreach ($d in Get-ChildItem -LiteralPath $path -Directory) {
+        $script:n++
+        $inner = Emit-Dir $d.FullName ($indent + "  ")
+        [void]$sb.AppendLine("$indent<Directory Id=`"D$($script:n)`" Name=`"$(Esc $d.Name)`">")
+        [void]$sb.Append($inner)
+        [void]$sb.AppendLine("$indent</Directory>")
+    }
+    return $sb.ToString()
+}
+$body = Emit-Dir $appDir "      "
+$refXml = ($script:refs | ForEach-Object { "      <ComponentRef Id=`"$_`" />" }) -join "`n"
+@"
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Fragment>
+    <DirectoryRef Id="INSTALLFOLDER">
+$body    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <ComponentGroup Id="AppFiles">
+$refXml
+    </ComponentGroup>
+  </Fragment>
+</Wix>
+"@ | Set-Content -Encoding utf8 $frag
+Write-Host "harvested $($script:refs.Count) files into $frag"
+
 wix extension add -g WixToolset.UI.wixext/5.0.2
 wix build -arch x64 -ext WixToolset.UI.wixext `
     -d Version=$version -d AppDir=dist\VoidLoop -d IconPath=packaging\windows\voidloop.ico -d LicensePath=packaging\windows\license.rtf `
-    -o "out\VoidLoop-$version-windows-x64.msi" packaging\windows\VoidLoop.wxs
+    -o "out\VoidLoop-$version-windows-x64.msi" packaging\windows\VoidLoop.wxs $frag
 if ($LASTEXITCODE -ne 0) { throw "wix build failed" }
 Get-ChildItem out | Format-Table Name, Length

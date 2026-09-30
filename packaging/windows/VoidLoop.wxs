@@ -17,10 +17,6 @@
 
     <StandardDirectory Id="ProgramFiles64Folder">
       <Directory Id="INSTALLFOLDER" Name="VoidLoop">
-        <!-- every file of the PyInstaller folder except the launcher, which carries the shortcuts -->
-        <Files Include="$(AppDir)\**">
-          <Exclude Files="$(AppDir)\VoidLoop.exe" />
-        </Files>
         <Component Id="MainExecutable" Guid="*">
           <File Id="VoidLoopExe" Source="$(AppDir)\VoidLoop.exe" KeyPath="yes">
             <Shortcut Id="StartMenuShortcut" Directory="AppMenuFolder" Name="VoidLoop" WorkingDirectory="INSTALLFOLDER"
@@ -32,6 +28,11 @@
         </Component>
       </Directory>
     </StandardDirectory>
+
+    <Feature Id="Main" Title="VoidLoop" Level="1" AllowAbsent="no">
+      <ComponentRef Id="MainExecutable" />
+      <ComponentGroupRef Id="AppFiles" />
+    </Feature>
 
     <StandardDirectory Id="ProgramMenuFolder">
       <Directory Id="AppMenuFolder" Name="VoidLoop" />
