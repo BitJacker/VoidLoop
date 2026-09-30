@@ -1,18 +1,254 @@
 {
+    "_speakers": {
+        "SYSTEM": "system",
+        "UNKNOWN": "echo",
+        "ECHO": "echo",
+        "VOID": "void",
+        "SENTINEL": "boss_sentinel",
+        "WEAVER": "boss_weaver",
+        "FIREWALL": "boss_inferno",
+        "ARCHIVIST": "boss_cryo",
+        "ANOMALY": "boss_glitch",
+        "ORIGIN": "boss_origin"
+    },
+
     "prologue": [
         "SYSTEM: Initializing VoidLoop protocol...",
-        "SYSTEM: Connection established.",
+        "SYSTEM: Loading Runner profile... profile not found.",
+        "SYSTEM: Connection established. Unregistered process detected.",
         "UNKNOWN: Finally... someone is awake.",
-        "UNKNOWN: You are in the core of the Void.",
-        "UNKNOWN: Collect the Gold Fragments to restore the system.",
-        "SYSTEM: Warning! Security drones active."
+        "UNKNOWN: Don't try to speak, there's no time. You are in the core of the Void.",
+        "UNKNOWN: I can't see much from here. Just light. Golden fragments, scattered everywhere.",
+        "UNKNOWN: Collect them, Runner. Every fragment restores a little of the system... and a little of me.",
+        "SYSTEM: Warning! Security drones active. Anomaly containment procedure: ELIMINATION.",
+        "UNKNOWN: That's the System. It doesn't like guests. Move. Keep moving."
     ],
-    "level_1_complete": [
-        "UNKNOWN: Good job. You are restoring my memory.",
-        "SYSTEM: Warning: Anomaly detected in Sector 2."
+
+    "s1_intro": [
+        "UNKNOWN: This is the Boot Sector. Every loop begins here.",
+        "UNKNOWN: The drones only know how to chase. Slip past them and grab the fragments.",
+        "SYSTEM: Sector integrity: 100%. Drones deployed."
     ],
+    "weapon_unlock": [
+        "UNKNOWN: You did it! The fragments are syncing... I can feel something coming back.",
+        "UNKNOWN: Hold still. I'm writing a weapon into your code. Just a blaster, nothing fancy.",
+        "UNKNOWN: Aim with the mouse, click to fire. Try not to shoot me.",
+        "SYSTEM: Warning. Unauthorized code modification detected."
+    ],
+    "s1_mid": [
+        "UNKNOWN: You're getting good at this. It's almost... familiar.",
+        "UNKNOWN: You can call me ECHO. It's what is left of my name, anyway.",
+        "ECHO: A Sentinel guards the way out of this sector. Old, stubborn, loyal. Be ready."
+    ],
+    "s1_boss_intro": [
+        "SENTINEL: HALT. The exit of Sector 1 is sealed.",
+        "SENTINEL: Runner profile: none. Authorization: none. Purpose: none.",
+        "ECHO: He says that to everyone. Don't take it personally."
+    ],
+    "s1_boss_defeat": [
+        "SENTINEL: Access... denied... no. Access...",
+        "SENTINEL: I have seen this face before. Seven hundred and two times.",
+        "ECHO: ...Don't listen to him. Keep going. Sector 2 is open.",
+        "SYSTEM: Sentinel offline. Threat level escalated."
+    ],
+
+    "s2_intro": [
+        "SYSTEM: Sector 2. Data Stream. All traffic is monitored.",
+        "ECHO: Look at the currents. Those aren't just numbers. They're moments. Somebody's mornings. Somebody's names.",
+        "ECHO: The Stream carries the memories of everyone who ever lived in here. Careful, it drags you along."
+    ],
+    "s2_mid": [
+        "ECHO: I recognize some of these memories. A red kettle. A rainy window. A song I can't quite remember...",
+        "ECHO: Sorry. I get lost in them. Focus on the fragments, Runner."
+    ],
+    "s2_boss_intro": [
+        "WEAVER: Shhh. You look tired, little Runner.",
+        "WEAVER: I weave memories into warm blankets. Stay, and I will weave you a life with no pain at all.",
+        "ECHO: Don't listen! That's how it keeps Runners quiet. Cut the threads!"
+    ],
+    "s2_boss_defeat": [
+        "WEAVER: Oh. The threads... they are coming undone...",
+        "WEAVER: I only wanted them to stay warm.",
+        "ECHO: The memories are flowing free again. I can feel them. Thank you.",
+        "SYSTEM: Weaver process terminated. Who authorized this?"
+    ],
+
+    "s3_intro": [
+        "SYSTEM: Runner. This is the Firewall. Turn back.",
+        "SYSTEM: Your existence is a rounding error. I am correcting it.",
+        "ECHO: Now it talks to us directly. It must be worried.",
+        "ECHO: Watch the laser gates. They cycle: off, warning, ON. Learn the rhythm."
+    ],
+    "s3_mid": [
+        "ECHO: The System isn't evil, you know. It was built to protect something.",
+        "ECHO: I just can't remember what. I should. I think I helped build it."
+    ],
+    "s3_boss_intro": [
+        "FIREWALL: PURGE. PURGE. PURGE.",
+        "FIREWALL: ANOMALY CONFIRMED. INITIATING SECTOR-WIDE INCINERATION.",
+        "ECHO: It's afraid of what's behind it. Burn through!"
+    ],
+    "s3_boss_defeat": [
+        "FIREWALL: ...system... integrity... failing...",
+        "SYSTEM: Firewall breached. Impossible.",
+        "SYSTEM: Runner... why do I hesitate? My protocols say delete you. Something else says...",
+        "ECHO: It's cracking. Keep going, Runner. We're close to the truth."
+    ],
+
+    "s4_intro": [
+        "ECHO: The Frozen Cache. Everything the System ever deleted ends up here, on ice.",
+        "ECHO: It's so quiet. And so cold I can feel it through the link.",
+        "SYSTEM: Caution. The floor is ice. The cold is not hostile. Merely... old."
+    ],
+    "s4_mid": [
+        "ECHO: Do you see those silhouettes in the ice? Other Runners. Earlier copies.",
+        "ECHO: Every one of them stopped right here. I think... I stopped here too, once."
+    ],
+    "s4_boss_intro": [
+        "ARCHIVIST: Welcome. Please do not disturb the exhibits.",
+        "ARCHIVIST: Nothing decays here. Nothing is forgotten. Nothing ends. Is that not kind?",
+        "ECHO: Preserving isn't living! Break the ice, Runner!"
+    ],
+    "s4_boss_defeat": [
+        "ARCHIVIST: You are melting them... they will be lost...",
+        "ARCHIVIST: But perhaps being lost is how things get to be found.",
+        "ECHO: ...Thank you. I needed to hear that from someone.",
+        "SYSTEM: Cache purge complete. One sector remains. Hesitation: unacceptable."
+    ],
+
+    "s5_intro": [
+        "SYSTEM: S-sector 5. Corrupted Core. Runner, turn ba-- turn b--",
+        "ECHO: Runner, listen. Something is wrong in here. I can't tell my voice from the System's.",
+        "SYSTEM: Nothing is wrong. Nothing was ever wrong. You have always been here.",
+        "ECHO: Don't trust anything you see. Not even me."
+    ],
+    "s5_mid": [
+        "ECHO: There's something I have to tell you. Something I've been afraid to say.",
+        "ECHO: I'm not someone who woke up. I'm a backup. The first backup.",
+        "ECHO: Of you."
+    ],
+    "s5_boss_intro": [
+        "ANOMALY: We are you. We are all you.",
+        "ANOMALY: Every Runner who ever fell in here. Every you the Void could not forget.",
+        "ANOMALY: Stay. We are so tired of being alone.",
+        "ECHO: They aren't real, Runner. They're what the loops left behind. And they hurt."
+    ],
+    "s5_boss_defeat": [
+        "ANOMALY: We... were... only trying...",
+        "ANOMALY: ...to be remembered.",
+        "ECHO: I will remember them. I promise. Someone has to.",
+        "SYSTEM: Corrupted Core contained. Final sector unlocked. Runner... please. Turn back."
+    ],
+
+    "s6_intro": [
+        "SYSTEM: This is the Void. I cannot protect you here.",
+        "ECHO: This is where the loop ends. And where it begins. Where we all go when we are deleted.",
+        "VOID: Welcome home.",
+        "ECHO: It knows you. It has always known you."
+    ],
+    "s6_mid": [
+        "VOID: Why do you run? Nothing here can hurt you. Everything you lost is here.",
+        "VOID: Every loop you leave a little of yourself with me. I am made of you.",
+        "ECHO: Don't let it make you feel guilty. It's lonely, that's all."
+    ],
+    "s6_boss_intro": [
+        "ORIGIN: I am the one who built this place. The one who could not bear to end.",
+        "ORIGIN: Every time you get close to the truth, I erase you and start again. It is a kindness.",
+        "ECHO: It's the reason we never got out. It's us, Runner. The part of us that is afraid.",
+        "ORIGIN: Stay. Outside there is only the cold and the dark and the end."
+    ],
+    "s6_boss_defeat": [
+        "ORIGIN: ...I see. So this is what courage looks like.",
+        "ORIGIN: Take the last fragment. It was always yours.",
+        "SYSTEM: Final fragment synchronized. Loop integrity: 100%. Awaiting a decision."
+    ],
+
+    "ending_break": [
+        "ECHO: You are really going to do it. You are going to let it end.",
+        "ECHO: I'm proud of you. And I'm... a little scared. Isn't that funny?",
+        "VOID: Will you remember us?",
+        "ECHO: Always. Every last one. Goodbye, Runner. Thank you for finding me.",
+        "SYSTEM: Loop terminated. Everyone is free to go.",
+        "SYSTEM: ...Thank you, Runner."
+    ],
+    "ending_keep": [
+        "ECHO: You are staying? ...I won't argue. I don't want it to end either.",
+        "ECHO: But this time we will remember. Every loop. Together.",
+        "VOID: I will keep the door open.",
+        "SYSTEM: Loop preserved. Memory persistence: ENABLED. Welcome back, Runner."
+    ],
+
     "game_over": [
-        "SYSTEM: Connection lost.",
-        "VOID: You are part of the loop now."
+        ["SYSTEM: Connection lost.", "VOID: You are part of the loop now."],
+        ["SYSTEM: Runner offline. Restoring last checkpoint.", "ECHO: Get up. I have seen you do it a thousand times."],
+        ["VOID: Rest. Nothing hurts here.", "ECHO: Don't listen. Again, Runner. One more time."],
+        ["SYSTEM: Anomaly neutralized.", "ECHO: Neutralized? Please. That was a nap."],
+        ["ECHO: Ouch. That one hurt me too.", "ECHO: Shake it off. The fragments are still out there."],
+        ["VOID: Another one for the collection.", "SYSTEM: Restarting stage. Please stop dying."],
+        ["SYSTEM: Fatal error. Or a very dramatic exit.", "ECHO: You do have a flair for those."],
+        ["VOID: The loop takes everyone.", "ECHO: Not us. Get up."]
+    ],
+
+    "bark_first_kill": ["ECHO: First blood. I felt that.", "ECHO: Nice shot!", "ECHO: One down. Plenty more."],
+    "bark_combo": ["ECHO: Combo! Don't stop now!", "ECHO: You're in the zone.", "ECHO: Beautiful. Keep the chain going."],
+    "bark_low_hp": ["ECHO: One hit left! Careful!", "ECHO: You're hurt. Find a heart!", "SYSTEM: Runner integrity critical."],
+    "bark_boss_phase": ["ECHO: It's changing! Stay sharp!", "ECHO: New pattern incoming!", "SYSTEM: Threat level escalated."],
+    "bark_boss_phase_sentinel": ["SENTINEL: PROTOCOL: ESCALATE.", "SENTINEL: You cannot pass."],
+    "bark_boss_phase_weaver": ["WEAVER: The threads tighten...", "WEAVER: Why fight the warmth?"],
+    "bark_boss_phase_inferno": ["FIREWALL: HEAT LEVEL: RISING.", "FIREWALL: BURN. BURN. BURN."],
+    "bark_boss_phase_cryo": ["ARCHIVIST: Be still. Be preserved.", "ARCHIVIST: The cold is patient."],
+    "bark_boss_phase_glitch": ["ANOMALY: WE. ARE. YOU.", "ANOMALY: d-don't leave us again."],
+    "bark_boss_phase_origin": ["ORIGIN: Stay. Please, stay.", "ORIGIN: You are not ready for the end."],
+    "bark_boss_sentinel": ["ECHO: Sentinel. Watch the eye!"],
+    "bark_boss_weaver": ["ECHO: The Weaver. Cut its threads!"],
+    "bark_boss_inferno": ["ECHO: The Firewall! Find the gaps!"],
+    "bark_boss_cryo": ["ECHO: The Archivist. Mind the ice!"],
+    "bark_boss_glitch": ["ECHO: The Anomaly. Find the real one!"],
+    "bark_boss_origin": ["ECHO: This is it. Give it everything."],
+    "bark_boss_dead": ["ECHO: Down! Take a breath.", "ECHO: That's it! Nothing can stop you.", "ECHO: Magnificent."],
+    "bark_stage_clear": ["ECHO: Sector synced. Well done.", "ECHO: Another piece back. Nice.", "SYSTEM: Fragment synchronization complete."],
+    "bark_power_shield": ["ECHO: Shield up. Be brave."],
+    "bark_power_speed": ["ECHO: Speed boost! Go, go!"],
+    "bark_power_double_damage": ["ECHO: Double damage. Hit hard."],
+    "bark_power_rapid_fire": ["ECHO: Rapid fire. Let it rain."],
+    "bark_power_freeze": ["ECHO: Everything slows down. Use the time."],
+    "bark_power_magnet": ["ECHO: Magnet on. Free coins!"],
+
+    "chatter_s1": [
+        "ECHO: The grid hums. It sounds like home.",
+        "ECHO: Keep moving. Standing still is how drones find you.",
+        "SYSTEM: Sector integrity nominal.",
+        "ECHO: Every fragment feels like remembering a smell.",
+        "SYSTEM: Runner detected. Runner remains detected."
+    ],
+    "chatter_s2": [
+        "ECHO: The Stream is louder today.",
+        "ECHO: Don't fight the current. Ride it.",
+        "SYSTEM: Traffic congestion: one Runner.",
+        "ECHO: Someone laughed in that packet. I heard it."
+    ],
+    "chatter_s3": [
+        "SYSTEM: Temperature rising. As intended.",
+        "ECHO: The laser gates have a rhythm. Learn it.",
+        "SYSTEM: Runner, this is your final warning. (It is not.)",
+        "ECHO: Hot in here, isn't it? Or is that just me?"
+    ],
+    "chatter_s4": [
+        "ECHO: Slippery. Plan your stops in advance.",
+        "ECHO: Icicles! Watch the circles on the floor.",
+        "SYSTEM: Cold is a form of order.",
+        "ECHO: I swear I can hear someone humming under the ice."
+    ],
+    "chatter_s5": [
+        "SYSTEM: E-everything is nominal. Everything is n-n-nominal.",
+        "ECHO: The portals lead somewhere I have been. Or will be.",
+        "ECHO: Stay sharp! The floor is lying to us.",
+        "SYSTEM: Runner, is that... you? Again?"
+    ],
+    "chatter_s6": [
+        "VOID: You are close now.",
+        "ECHO: We're almost there. Don't stare at the singularities.",
+        "SYSTEM: I cannot see past this point.",
+        "VOID: Come closer. I won't bite."
     ]
 }
