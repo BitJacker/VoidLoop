@@ -88,6 +88,8 @@ jobs:
             Write-Host "== $what"
             $q = Start-Process -FilePath $file -ArgumentList $argv -PassThru
             if (-not $q.WaitForExit($secs * 1000)) {
+              Get-Process | Where-Object { $_.MainWindowTitle } | Select-Object Name, Id, MainWindowTitle | Format-Table -AutoSize | Out-String | Write-Host
+              if (Test-Path selftest-msi.txt) { Get-Content selftest-msi.txt }
               Get-Process | Sort-Object CPU -Descending | Select-Object -First 8 Name, Id, CPU | Format-Table | Out-String | Write-Host
               Stop-Process -Id $q.Id -Force -ErrorAction SilentlyContinue
               throw "$what timed out after $secs s"
@@ -95,11 +97,18 @@ jobs:
             Write-Host "   exit code $($q.ExitCode)"
             return $q.ExitCode
           }
+          $folder = "dist\VoidLoop\VoidLoop.exe"
+          $code = Run (Resolve-Path $folder).Path @("--selftest", "--report", "selftest-folder.txt") "folder-build selftest (before install)" 60
+          if (Test-Path selftest-folder.txt) { Get-Content selftest-folder.txt }
+          if ($code -ne 0) { throw "folder-build selftest failed ($code)" }
           $msi = (Get-ChildItem out\*.msi).FullName
           $code = Run "msiexec.exe" @("/i", "`"$msi`"", "/qn", "/norestart", "/l*v", "install.log") "msi install"
           if ($code -ne 0) { Get-Content install.log -Tail 60; throw "msiexec install failed ($code)" }
           $app = "$env:ProgramFiles\VoidLoop\VoidLoop.exe"
           if (-not (Test-Path $app)) { throw "not installed at $app" }
+          $n1 = (Get-ChildItem dist\VoidLoop -Recurse -File).Count
+          $n2 = (Get-ChildItem "$env:ProgramFiles\VoidLoop" -Recurse -File).Count
+          Write-Host "files in build folder: $n1, installed: $n2"
           if (-not (Test-Path "$env:ProgramData\Microsoft\Windows\Start Menu\Programs\VoidLoop\VoidLoop.lnk")) { throw "no Start Menu shortcut" }
           $code = Run $app @("--selftest", "--report", "selftest-msi.txt") "installed selftest"
           if (Test-Path selftest-msi.txt) { Get-Content selftest-msi.txt }
