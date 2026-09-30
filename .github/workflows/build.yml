@@ -82,20 +82,32 @@ jobs:
           if ($p.ExitCode -ne 0 -or (Get-Item shot-windows-exe.png).Length -lt 50000) { throw "window smoke test failed" }
       - name: Install the MSI silently, run it, uninstall
         shell: pwsh
+        timeout-minutes: 12
         run: |
+          function Run($file, $argv, $what, $secs = 120) {
+            Write-Host "== $what"
+            $q = Start-Process -FilePath $file -ArgumentList $argv -PassThru
+            if (-not $q.WaitForExit($secs * 1000)) {
+              Get-Process | Sort-Object CPU -Descending | Select-Object -First 8 Name, Id, CPU | Format-Table | Out-String | Write-Host
+              Stop-Process -Id $q.Id -Force -ErrorAction SilentlyContinue
+              throw "$what timed out after $secs s"
+            }
+            Write-Host "   exit code $($q.ExitCode)"
+            return $q.ExitCode
+          }
           $msi = (Get-ChildItem out\*.msi).FullName
-          $p = Start-Process msiexec.exe -ArgumentList "/i","`"$msi`"","/qn","/l*v","install.log" -Wait -PassThru
-          if ($p.ExitCode -ne 0) { Get-Content install.log -Tail 60; throw "msiexec install failed ($($p.ExitCode))" }
+          $code = Run "msiexec.exe" @("/i", "`"$msi`"", "/qn", "/norestart", "/l*v", "install.log") "msi install"
+          if ($code -ne 0) { Get-Content install.log -Tail 60; throw "msiexec install failed ($code)" }
           $app = "$env:ProgramFiles\VoidLoop\VoidLoop.exe"
           if (-not (Test-Path $app)) { throw "not installed at $app" }
           if (-not (Test-Path "$env:ProgramData\Microsoft\Windows\Start Menu\Programs\VoidLoop\VoidLoop.lnk")) { throw "no Start Menu shortcut" }
-          $p = Start-Process -FilePath $app -ArgumentList "--selftest","--report","selftest-msi.txt" -Wait -PassThru
-          Get-Content selftest-msi.txt
-          if ($p.ExitCode -ne 0) { throw "installed selftest failed" }
-          $p = Start-Process -FilePath $app -ArgumentList "--no-audio","--screenshot","shot-windows-msi.png" -Wait -PassThru
-          if ($p.ExitCode -ne 0) { throw "installed window smoke test failed" }
-          $p = Start-Process msiexec.exe -ArgumentList "/x","`"$msi`"","/qn","/l*v","uninstall.log" -Wait -PassThru
-          if ($p.ExitCode -ne 0) { throw "uninstall failed" }
+          $code = Run $app @("--selftest", "--report", "selftest-msi.txt") "installed selftest"
+          if (Test-Path selftest-msi.txt) { Get-Content selftest-msi.txt }
+          if ($code -ne 0) { throw "installed selftest failed ($code)" }
+          $code = Run $app @("--no-audio", "--screenshot", "shot-windows-msi.png") "installed window smoke test"
+          if ($code -ne 0) { throw "installed window smoke test failed ($code)" }
+          $code = Run "msiexec.exe" @("/x", "`"$msi`"", "/qn", "/norestart", "/l*v", "uninstall.log") "msi uninstall"
+          if ($code -ne 0) { throw "uninstall failed ($code)" }
           if (Test-Path $app) { throw "files left behind after uninstall" }
       - uses: actions/upload-artifact@v4
         if: always()
@@ -106,6 +118,7 @@ jobs:
             shot-windows-*.png
             selftest-*.txt
             install.log
+            uninstall.log
 
   release:
     needs: [linux, windows]
