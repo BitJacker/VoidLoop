@@ -42,8 +42,9 @@ function Emit-Dir($path, $indent) {
     }
     foreach ($d in Get-ChildItem -LiteralPath $path -Directory) {
         $script:n++
+        $did = "D$($script:n)"
         $inner = Emit-Dir $d.FullName ($indent + "  ")
-        [void]$sb.AppendLine("$indent<Directory Id=`"D$($script:n)`" Name=`"$(Esc $d.Name)`">")
+        [void]$sb.AppendLine("$indent<Directory Id=`"$did`" Name=`"$(Esc $d.Name)`">")
         [void]$sb.Append($inner)
         [void]$sb.AppendLine("$indent</Directory>")
     }
