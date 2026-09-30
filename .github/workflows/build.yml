@@ -1,0 +1,152 @@
+name: Build & release
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: "Publish a GitHub Release (tag vX.Y.Z taken from VoidLoop/__init__.py)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+env:
+  PYTHON_VERSION: "3.12"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "${{ env.PYTHON_VERSION }}", cache: pip }
+      - run: pip install -r requirements-dev.txt
+      - run: python -m pytest tests -q
+        env: { SDL_VIDEODRIVER: dummy, SDL_AUDIODRIVER: dummy }
+
+  linux:
+    needs: test
+    runs-on: ubuntu-22.04          # old glibc -> the binaries run on most distributions
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "${{ env.PYTHON_VERSION }}", cache: pip }
+      - run: pip install -r requirements-dev.txt
+      - name: Build tar.gz, .deb and AppImage
+        run: bash packaging/linux/build.sh all
+      - name: Smoke test the bundle (selftest + a real window under Xvfb)
+        run: |
+          sudo apt-get update -q && sudo apt-get install -y -q xvfb
+          export VOIDLOOP_HOME="$(mktemp -d)"
+          SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy dist/VoidLoop/VoidLoop --selftest
+          xvfb-run -a dist/VoidLoop/VoidLoop --no-audio --screenshot shot-linux.png
+          test "$(stat -c %s shot-linux.png)" -gt 50000
+      - name: Smoke test the AppImage and the .deb
+        run: |
+          export VOIDLOOP_HOME="$(mktemp -d)" SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy
+          chmod +x out/*.AppImage
+          APPIMAGE_EXTRACT_AND_RUN=1 out/*.AppImage --selftest
+          sudo dpkg -i out/*.deb || sudo apt-get -f install -y
+          voidloop --selftest
+      - uses: actions/upload-artifact@v4
+        with:
+          name: linux
+          path: |
+            out/*
+            shot-linux.png
+
+  windows:
+    needs: test
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "${{ env.PYTHON_VERSION }}", cache: pip }
+      - run: pip install -r requirements-dev.txt
+      - name: Build portable exe and MSI
+        shell: pwsh
+        run: ./packaging/windows/build.ps1
+      - name: Smoke test the portable exe
+        shell: pwsh
+        run: |
+          $exe = (Get-ChildItem out\*.exe).FullName
+          $p = Start-Process -FilePath $exe -ArgumentList "--selftest","--report","selftest-exe.txt" -Wait -PassThru
+          Get-Content selftest-exe.txt
+          if ($p.ExitCode -ne 0) { throw "selftest failed ($($p.ExitCode))" }
+          $p = Start-Process -FilePath $exe -ArgumentList "--no-audio","--screenshot","shot-windows-exe.png" -Wait -PassThru
+          if ($p.ExitCode -ne 0 -or (Get-Item shot-windows-exe.png).Length -lt 50000) { throw "window smoke test failed" }
+      - name: Install the MSI silently, run it, uninstall
+        shell: pwsh
+        timeout-minutes: 12
+        run: |
+          function Run($file, $argv, $what, $secs = 120) {
+            Write-Host "== $what"
+            $q = Start-Process -FilePath $file -ArgumentList $argv -PassThru
+            if (-not $q.WaitForExit($secs * 1000)) {
+              Get-Process | Where-Object { $_.MainWindowTitle } | Select-Object Name, Id, MainWindowTitle | Format-Table -AutoSize | Out-String | Write-Host
+              if (Test-Path selftest-msi.txt) { Get-Content selftest-msi.txt }
+              Get-Process | Sort-Object CPU -Descending | Select-Object -First 8 Name, Id, CPU | Format-Table | Out-String | Write-Host
+              Stop-Process -Id $q.Id -Force -ErrorAction SilentlyContinue
+              throw "$what timed out after $secs s"
+            }
+            Write-Host "   exit code $($q.ExitCode)"
+            return $q.ExitCode
+          }
+          $folder = "dist\VoidLoop\VoidLoop.exe"
+          $code = Run (Resolve-Path $folder).Path @("--selftest", "--report", "selftest-folder.txt") "folder-build selftest (before install)" 60
+          if (Test-Path selftest-folder.txt) { Get-Content selftest-folder.txt }
+          if ($code -ne 0) { throw "folder-build selftest failed ($code)" }
+          $msi = (Get-ChildItem out\*.msi).FullName
+          $code = Run "msiexec.exe" @("/i", "`"$msi`"", "/qn", "/norestart", "/l*v", "install.log") "msi install"
+          if ($code -ne 0) { Get-Content install.log -Tail 60; throw "msiexec install failed ($code)" }
+          $app = "$env:ProgramFiles\VoidLoop\VoidLoop.exe"
+          if (-not (Test-Path $app)) { throw "not installed at $app" }
+          $n1 = (Get-ChildItem dist\VoidLoop -Recurse -File).Count
+          $n2 = (Get-ChildItem "$env:ProgramFiles\VoidLoop" -Recurse -File).Count
+          Write-Host "files in build folder: $n1, installed: $n2"
+          if (-not (Test-Path "$env:ProgramData\Microsoft\Windows\Start Menu\Programs\VoidLoop\VoidLoop.lnk")) { throw "no Start Menu shortcut" }
+          $code = Run $app @("--selftest", "--report", "selftest-msi.txt") "installed selftest"
+          if (Test-Path selftest-msi.txt) { Get-Content selftest-msi.txt }
+          if ($code -ne 0) { throw "installed selftest failed ($code)" }
+          $code = Run $app @("--no-audio", "--screenshot", "shot-windows-msi.png") "installed window smoke test"
+          if ($code -ne 0) { throw "installed window smoke test failed ($code)" }
+          $code = Run "msiexec.exe" @("/x", "`"$msi`"", "/qn", "/norestart", "/l*v", "uninstall.log") "msi uninstall"
+          if ($code -ne 0) { throw "uninstall failed ($code)" }
+          if (Test-Path $app) { throw "files left behind after uninstall" }
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: windows
+          path: |
+            out/*
+            shot-windows-*.png
+            selftest-*.txt
+            install.log
+            uninstall.log
+
+  release:
+    needs: [linux, windows]
+    if: startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'workflow_dispatch' && inputs.publish)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - id: ver
+        run: echo "tag=v$(python3 -c "import re;print(re.search(r'__version__ = \"([^\"]+)\"', open('VoidLoop/__init__.py').read()).group(1))")" >> "$GITHUB_OUTPUT"
+      - uses: actions/download-artifact@v4
+        with: { path: artifacts }
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || steps.ver.outputs.tag }}
+          target_commitish: ${{ github.sha }}
+          name: VoidLoop ${{ steps.ver.outputs.tag }}
+          generate_release_notes: true
+          files: |
+            artifacts/linux/out/*
+            artifacts/windows/out/*

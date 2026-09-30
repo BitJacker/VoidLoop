@@ -1,0 +1,5 @@
+-r requirements.txt
+pytest>=7
+fonttools>=4.40
+pyinstaller>=6.3
+pillow>=10
